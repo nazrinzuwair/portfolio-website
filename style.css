@@ -110,7 +110,7 @@ nav{position:fixed;inset:0 0 auto;z-index:200;height:66px;background:white;
   margin-bottom:14px;border:1px solid rgba(139,92,246,.15)}
 .sec-h{font-family:var(--serif);font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;color:var(--ink);margin-bottom:45px}
 .sec-h em{font-style:italic;color:var(--p)}
-.sec-sub{font-size:.95rem;color:var(--ink2);line-height:1.75;max-width:540px}
+.sec-sub{font-size:.95rem;color:var(--ink2);line-height:1.75}
 
 /* ── SKILLS ── */
 .skills-sec{background:var(--white)}
@@ -164,7 +164,7 @@ nav{position:fixed;inset:0 0 auto;z-index:200;height:66px;background:white;
 
 
 /* ── DARK TECH STRIP ── */
-.dark-strip{background:var(--dark);padding:clamp(50px,7vw,80px) clamp(20px,5vw,64px)}
+.dark-strip{background:var(--ink);padding:clamp(50px,7vw,80px) clamp(20px,5vw,64px)}
 .ds-inner{max-width:1060px;margin:0 auto}
 .ds-inner .sec-pill{background:rgba(139,92,246,.2);color:var(--p3)}
 .ds-inner .sec-h{color:var(--white)}
@@ -182,7 +182,7 @@ nav{position:fixed;inset:0 0 auto;z-index:200;height:66px;background:white;
 .proc-card:hover{border-color:rgba(139,92,246,.3);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .proc-num{width:52px;height:52px;border-radius:50%;background:var(--p4);border:2px solid rgba(139,92,246,.18);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;font-weight:700;color:var(--p);margin:0 auto 18px}
 .proc-ico{font-size:1.4rem;margin-bottom:12px;display:block}
-.proc-card h4{font-family:var(--serif);font-size:.98rem;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.proc-card h4{font-family:var(--sans);font-size:.98rem;color:var(--ink);margin-bottom:8px;line-height:1.2}
 .proc-card p{font-size:.78rem;color:var(--ink2);line-height:1.65}
 
 /* ── ABOUT ── */
