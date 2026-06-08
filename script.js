@@ -10,6 +10,19 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     if(t){e.preventDefault();closeNav();t.scrollIntoView({behavior:'smooth',block:'start'})}
   })
 });
+
+function filterSection(cat, btn){
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.port-section').forEach(s=>{
+    if(cat==='all' || s.dataset.cat===cat){
+      s.style.display='';
+    } else {
+      s.style.display='none';
+    }
+  });
+}
+
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
