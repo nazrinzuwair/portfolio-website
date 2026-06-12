@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Creek Industries — Website Redesign · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* full-width images */
+.cs-full-img{width:100%;border-radius:14px;border:1px solid var(--border);display:block;margin-top:28px;box-shadow:0 4px 24px rgba(124,58,237,.08)}
+.cs-full-ph{width:100%;aspect-ratio:16/8;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;margin-top:28px;text-align:center;padding:32px}
+.cs-full-ph span:first-child{font-size:2rem}
+
+/* before/after comparison */
+.cs-ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin-top:28px}
+.cs-ba-panel{position:relative}
+.cs-ba-panel img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover}
+.cs-ba-panel-ph{width:100%;aspect-ratio:4/3;background:var(--cream2);border:none;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-ba-panel-ph span:first-child{font-size:1.8rem}
+.cs-ba-label{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.7);color:white;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:8px;letter-spacing:.08em;text-transform:uppercase}
+.cs-ba-label.after{background:var(--p)}
+.cs-ba-divider{width:3px;background:var(--p);position:absolute;top:0;bottom:0;left:50%;transform:translateX(-50%)}
+
+/* 3-col page grid */
+.cs-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.cs-page-grid img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.cs-page-grid-ph{aspect-ratio:4/3;border-radius:12px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink3);font-size:.65rem;text-align:center;padding:10px}
+.cs-page-grid-ph span:first-child{font-size:1.5rem}
+
+/* 2-col grid */
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{aspect-ratio:16/9;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* nav pills */
+.cs-nav-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.cs-nav-pill{background:var(--cream2);border:1.5px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.8rem;font-weight:600;color:var(--ink)}
+
+/* old site problems list */
+.cs-problem-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.cs-problem-item{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:var(--cream2);border-radius:12px;border:1.5px solid var(--border)}
+.cs-problem-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+.cs-problem-text{font-size:.875rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.cs-problem-text strong{color:var(--ink)}
+
+@media(max-width:768px){
+  .cs-ba{grid-template-columns:1fr}
+  .cs-img-2up{grid-template-columns:1fr}
+  .cs-page-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .cs-page-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Wix</span>
+        <span class="cs-tag">Web Redesign</span>
+        <span class="cs-tag">Responsive</span>
+      </div>
+      <h1 class="cs-hero-title rev">Black Creek Industries —<br><em>Website Redesign</em></h1>
+      <p class="cs-hero-sub rev">A complete website redesign for a Campbell River construction company — rebuilding the outdated Wix website from scratch — expanded services, stronger brand presence, cleaner navigation, and improved UX throughout, all within the same Wix platform.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Web Designer &amp; Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-val">Wix (redesigned)</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Status</div>
+          <div class="cs-meta-val pill">✦ Live</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER: browser mockup of new homepage
+          Save as: assets/bci-redesign/cover.png  · 1040 × 600px
+        -->
+        <img src="../assets/BCI-Website.png" alt="Black Creek Industries Redesign"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🏗️</span><span>assets/bci-redesign/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>Black Creek Industries?</em></h2>
+        <div class="cs-body rev">
+          <p>Black Creek Industries Ltd is a construction and development company based in Campbell River, BC. They offer comprehensive turnkey services across five categories — marine infrastructure, civil works, residential renovations, commercial spaces, and snow removal — serving clients across Vancouver Island and beyond.</p>
+          <p>I work with the company as a Software Programmer at Black Creek Industries Ltd, and was brought in to redesign their existing Wix website, which had grown outdated as the business expanded its service offering and brand positioning. The old site no longer reflected the scale, quality, or full scope of what the company does.</p>
+          <p>The redesign rebuilt the site entirely from scratch within Wix — introducing a cleaner, more professional visual identity, restructuring the navigation to reflect all five service areas, and adding new sections including a 4-step process, BC Housing licensing credentials, Pacific Home Warranty approval, and a stronger homepage journey from introduction through to contact.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Client</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Black Creek Industries Ltd · Campbell River BC</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Type</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Full Wix Website Redesign</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Deliverables</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Redesign · New Pages · SEO · Responsive · Brand Refresh</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Live Site</div><a href="https://www.blackcreekindustriesltd.com" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">blackcreekindustriesltd.com ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 OLD SITE — BEFORE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Old Site</div>
+    <h2 class="cs-section-title rev">What we were <em>starting from.</em></h2>
+    <div class="cs-body rev">
+      <p>The original website was built on Wix and had served the company in its earlier days. But as Black Creek Industries grew — adding marine and civil services, gaining BC Housing licensing, and taking on larger commercial projects — the old site could no longer keep up. It presented the company as a smaller residential contractor rather than the full-service construction firm it had become.</p>
+    </div>
+
+    <!-- Before screenshots from uploaded images -->
+    <div class="cs-ba rev">
+      <div class="cs-ba-panel">
+        <!--
+          OLD SITE — Homepage screenshot
+          Save as: assets/bci-redesign/old-homepage.png
+          Source: your uploaded screenshot (image 2, left side)
+          Size: 640 × 480px
+        -->
+        <img src="../assets/bci-redesign/old-homepage.png" alt="Old Homepage"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>🕰️</span><span>Old homepage<br>old-homepage.png</span></div><div class=\'cs-ba-label\'>Before</div>'">
+        <div class="cs-ba-label">Before</div>
+      </div>
+      <div class="cs-ba-panel">
+        <!--
+          OLD SITE — Services/Projects page
+          Save as: assets/bci-redesign/old-services.png
+          Source: your uploaded screenshot (image 1, right side)
+          Size: 640 × 480px
+        -->
+        <img src="../assets/bci-redesign/old-services.png" alt="Old Services Page"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>🕰️</span><span>Old services & projects page<br>old-services.png</span></div><div class=\'cs-ba-label\'>Before</div>'">
+        <div class="cs-ba-label">Before</div>
+      </div>
+    </div>
+    <div class="cs-img-caption rev">The original Wix website — before the redesign</div>
+
+    <!-- Problems with old site -->
+    <div class="cs-problem-list rev">
+
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>Incomplete service representation</strong> — The old site focused primarily on residential renovation, fencing, and snow removal. Marine infrastructure and civil works — major parts of the business — were either missing or buried.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>Weak brand presence</strong> — The visual design didn't convey the professionalism of a licensed, warranted construction company. The hero section was generic and the layout felt cluttered on both desktop and mobile.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>No credibility signals</strong> — BC Housing licensing and Pacific Home Warranty approval are significant trust markers. Neither was featured prominently on the old site.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>No clear process or journey</strong> — Visitors had no way to understand how working with the company actually worked. No process section, no structured path from landing to enquiry.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 NEW SITE — AFTER -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — The Redesign</div>
+    <h2 class="cs-section-title rev">The new <em>blackcreekindustriesltd.com</em></h2>
+    <div class="cs-body rev">
+      <p>The redesigned site moves the company's digital presence into line with its actual scale and capability. A strong, confident hero section leads with "Your Vision Built To Last" — a positioning statement that speaks to both homeowners and commercial clients. The navigation was restructured around five distinct service categories, each with its own dedicated page.</p>
+    </div>
+
+    <!--
+      NEW SITE — Homepage
+      Save as: assets/bci-redesign/new-homepage.png
+      Screenshot the new live homepage
+      Size: 1040 × 600px
+    -->
+    </div>
+
+  <!-- 04 BEFORE vs AFTER SIDE BY SIDE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Before &amp; After</div>
+    <h2 class="cs-section-title rev">Side by <em>side comparison.</em></h2>
+    <div class="cs-body rev"><p>The transformation is most visible when the two homepages are placed side by side — from a generic service listing to a confident, brand-led experience.</p></div>
+
+    <div class="cs-ba rev">
+      <div class="cs-ba-panel">
+        <img src="../assets/bci-redesign/old-homepage.png" alt="Before"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>🕰️</span><span>Old site<br>old-homepage.png</span></div><div class=\'cs-ba-label\'>Before</div>'">
+        <div class="cs-ba-label">Before</div>
+      </div>
+      <div class="cs-ba-panel">
+        <img src="../assets/bci-redesign/new-homepage_redesign.png" alt="After"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>✨</span><span>New site<br>new-homepage.png</span></div><div class=\'cs-ba-label after\'>After</div>'">
+        <div class="cs-ba-label after">After</div>
+      </div>
+    </div>
+    <div class="cs-img-caption rev">Before vs After — same company, completely different impression</div>
+  </div>
+
+  <!-- 05 SITE STRUCTURE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Site Structure</div>
+    <h2 class="cs-section-title rev">Rebuilt navigation <em>around five services.</em></h2>
+    <div class="cs-body rev">
+      <p>The old navigation grouped everything under a generic "Services" page. The new structure gives each service category its own dedicated page — making it easier for the right client to find exactly what they need, and helping SEO by giving search engines distinct, focused pages for each service type.</p>
+    </div>
+    <div class="cs-nav-pills rev">
+      <span class="cs-nav-pill">🏠 Home</span>
+      <span class="cs-nav-pill">👥 About Us</span>
+      <span class="cs-nav-pill">⚓ Marine Infrastructure</span>
+      <span class="cs-nav-pill">🚧 Civil Works</span>
+      <span class="cs-nav-pill">🏢 Commercial Spaces</span>
+      <span class="cs-nav-pill">🔨 Residential Renovations</span>
+      <span class="cs-nav-pill">❄️ Snow Removal</span>
+      <span class="cs-nav-pill">✉️ Contact Us</span>
+      <span class="cs-nav-pill">📋 Get In Touch / Quote</span>
+    </div>
+  </div>
+
+  <!-- 06 HOMEPAGE SECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Homepage Sections</div>
+    <h2 class="cs-section-title rev">Every section <em>earns its place.</em></h2>
+    <div class="cs-body rev">
+      <p>The new homepage was structured as a deliberate narrative — each section answers the next question a prospective client would naturally have after reading the previous one.</p>
+    </div>
+    <div style="margin-top:24px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Hero</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Your Vision Built To Last" — bold headline, construction imagery, dual CTA: Contact Us + Learn More</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Why Choose Us</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Comprehensive turnkey services, sustainability focus, zero-waste building practices — positions the company's values clearly</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Trust Badges</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">BC Housing Licensed logo + Pacific Home Warranty badge — critical credibility signals missing from the old site</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Services Grid</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">5-card service overview: Marine · Civil · Residential · Commercial · Snow Removal — each links to its dedicated page</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Process</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">4-step visual flow: Planning → Design → Build → Deliver — gives clients confidence in how the company works</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">CTA Banner</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Your dream project starts here" — full-width closing section driving Contact Us Today</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section screenshots -->
+    <div class="cs-img-2up rev">
+      <div>
+        <img src="../assets/bci-redesign/section-services.png" alt="Services Grid"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>Services grid section<br>section-services.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Fully Integrated Construction Services — 5-card grid</div>
+      </div>
+      <div>
+        <img src="../assets/bci-redesign/section-process.png" alt="Our Process"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>Process section<br>section-process.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Our Process, Made Simple — 4-step flow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 SERVICE PAGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Service Pages</div>
+    <h2 class="cs-section-title rev">Five dedicated <em>service pages.</em></h2>
+    <div class="cs-body rev">
+      <p>Where the old site lumped everything onto a single services page, the redesign gives each service category its own fully designed page — targeted copy, relevant imagery, and a consistent CTA structure that directs visitors toward getting in touch.</p>
+    </div>
+
+    <!--
+      SERVICE PAGE SCREENSHOTS — 5 pages in grid
+      Save to: assets/bci-redesign/service-marine.png etc
+      Size: 640 × 480px each
+    -->
+    <div class="cs-page-grid rev">
+      <div>
+        <img src="../assets/bci-redesign/service-marine.png" alt="Marine"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>⚓</span><span>Marine Infrastructure<br>service-marine.png</span></div>'">
+        <div class="cs-img-caption">Marine Infrastructure</div>
+      </div>
+      <div>
+        <img src="../assets/bci-redesign/service-civil.png" alt="Civil"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🚧</span><span>Civil Works<br>service-civil.png</span></div>'">
+        <div class="cs-img-caption">Civil &amp; Infrastructure</div>
+      </div>
+      <div>
+        <img src="../assets/bci-redesign/service-residential.png" alt="Residential"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🔨</span><span>Residential Renovations<br>service-residential.png</span></div>'">
+        <div class="cs-img-caption">Residential Renovations</div>
+      </div>
+      <div>
+        <img src="../assets/bci-redesign/service-commercial.png" alt="Commercial"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🏢</span><span>Commercial Spaces<br>service-commercial.png</span></div>'">
+        <div class="cs-img-caption">Commercial Spaces</div>
+      </div>
+      <div>
+        <img src="../assets/bci-redesign/service-snow.png" alt="Snow Removal"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>❄️</span><span>Snow Removal<br>service-snow.png</span></div>'">
+        <div class="cs-img-caption">Snow Removal</div>
+      </div>
+      <div>
+        <img src="../assets/bci-redesign/page-about.png" alt="About Us"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>👥</span><span>About Us<br>page-about.png</span></div>'">
+        <div class="cs-img-caption">About Us</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 RESPONSIVE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Responsive Design</div>
+    <h2 class="cs-section-title rev">Tested on <em>every screen.</em></h2>
+    <div class="cs-body rev">
+      <p>Construction clients browse on mobile as often as desktop — on site, checking project details, or doing quick research. All pages were built with responsive breakpoints in Elementor and tested across desktop, tablet, and mobile to ensure the navigation, service cards, imagery, and CTAs work correctly at every size.</p>
+    </div>
+    <!--
+      RESPONSIVE MOCKUP
+      Save as: assets/bci-redesign/responsive.png
+      Desktop + tablet + mobile side by side
+      Size: 1040 × 520px
+    -->
+    <img src="../assets/bci-redesign/responsive.png" alt="Responsive"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('resp-ph').style.display='flex'">
+    <div id="resp-ph" class="cs-full-ph rev" style="display:none">
+      <span>📱</span><span>Responsive mockup — desktop / tablet / mobile</span>
+      <span style="font-size:.7rem;opacity:.7">assets/bci-redesign/responsive.png · 1040 × 520px</span>
+    </div>
+    <div class="cs-img-caption rev">Responsive across all viewports</div>
+  </div>
+
+  <!-- 09 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Rebuilt <em>within Wix.</em></h2>
+    <div class="cs-body rev"><p>The redesign was done entirely within Wix — rebuilding the site from scratch with a fresh visual design, new content structure, and updated service pages while keeping the client on the platform they already knew.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🌐</div><span class="cs-tech-name">Wix</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Wix Editor</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Custom CSS</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📋</div><span class="cs-tech-name">Wix Forms</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔍</div><span class="cs-tech-name">Wix SEO Tools</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">☁️</div><span class="cs-tech-name">Wix Hosting</span></div>
+    </div>
+  </div>
+
+  <!-- 10 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Outcomes</div>
+    <h2 class="cs-section-title rev">What changed <em>after the redesign.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">9+</span>
+        <span class="cs-outcome-label">Pages designed and built</span>
+        <span class="cs-outcome-note">5 service pages + home, about, contact, quote</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Redesigned in Wix</span>
+        <span class="cs-outcome-label">Full platform migration</span>
+        <span class="cs-outcome-note">Stronger brand &amp; structure</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Live</span>
+        <span class="cs-outcome-label">Production site launched</span>
+        <span class="cs-outcome-note">blackcreekindustriesltd.com</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">11 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>A redesign is also a rebranding.</strong> The company hadn't changed — but how it presented itself online had fallen behind its actual capabilities. A redesign is as much about repositioning and confidence as it is about visual polish.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>Credibility signals deserve prominent placement.</strong> BC Housing licensing and Pacific Home Warranty approval are meaningful differentiators in the construction market. Burying them — or leaving them out entirely — is a real missed opportunity. They now sit front and centre on the homepage.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>Working within the existing platform has real advantages.</strong> Rebuilding within Wix meant zero migration risk, no content loss, and no retraining the client on a new CMS. Starting from scratch visually — while keeping the platform the same — delivered a completely transformed result with minimal disruption.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Black Creek Modular — Responsive Website</div>
+    </div>
+    <a href="black_creek_modular_case_study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

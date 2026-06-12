@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Flyers & Promotional Posters — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* ── Flyer grid ── */
+.cs-flyer-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+  margin-top:32px;
+}
+.cs-flyer-card{
+  border-radius:14px;
+  overflow:hidden;
+  border:1.5px solid var(--border);
+  background:var(--white);
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+  transition:transform .2s;
+}
+.cs-flyer-card:hover{transform:translateY(-3px)}
+.cs-flyer-card img{
+  width:100%;
+  display:block;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  object-position:top;
+}
+.cs-flyer-ph{
+  width:100%;
+  height:200px;
+  background:var(--cream2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:6px;
+  color:var(--ink3);
+  font-size:.72rem;
+  text-align:center;
+  padding:16px;
+}
+.cs-flyer-ph span:first-child{font-size:2rem}
+.cs-flyer-info{padding:14px 16px}
+.cs-flyer-cat{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:4px}
+.cs-flyer-name{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.cs-flyer-desc{font-size:.78rem;color:var(--ink2);line-height:1.55;font-weight:300}
+.cs-flyer-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.cs-flyer-tag{background:var(--cream2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;font-size:.65rem;font-weight:600;color:var(--ink3)}
+
+/* spec table */
+.cs-spec-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.875rem}
+.cs-spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink2);font-weight:300}
+.cs-spec-table td:first-child{font-weight:700;color:var(--ink);width:38%}
+.cs-spec-table tr:last-child td{border-bottom:none}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* 2-col approach grid */
+.cs-approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.cs-approach-card{background:var(--cream2);border-radius:13px;padding:18px 20px;border:1.5px solid var(--border)}
+.cs-approach-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:8px}
+.cs-approach-text{font-size:.85rem;color:var(--ink2);line-height:1.6;font-weight:300}
+
+@media(max-width:768px){
+  .cs-flyer-grid{grid-template-columns:repeat(2,1fr)}
+  .cs-approach-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .cs-flyer-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Print Design</span>
+        <span class="cs-tag">Flyers &amp; Posters</span>
+        <span class="cs-tag">Canva</span>
+        <span class="cs-tag">Photoshop</span>
+        <span class="cs-tag">Illustrator</span>
+      </div>
+      <h1 class="cs-hero-title rev">Event Flyers &amp; —<br><em>Promotional Posters</em></h1>
+      <p class="cs-hero-sub rev">Eye-catching flyers and A4/A3 posters for events, promotions, and service announcements — designed for both print and digital use, each built around a clear visual hierarchy that stops the scroll and communicates fast.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Graphic Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Type</div>
+          <div class="cs-meta-val">Print &amp; Digital</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Tools</div>
+          <div class="cs-meta-val">Canva · Photoshop · Illustrator</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Formats</div>
+          <div class="cs-meta-val pill">✦ A4 · A3 · Digital</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER
+          Best option: the bubble tea Grand Opening poster
+          Or a mockup showing multiple posters fanned
+          Save as: assets/flyers/cover.png · 1040 × 600px
+        -->
+        <img src="../assets/flyers/cover.png" alt="Event Flyers and Posters"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>📄</span><span>assets/flyers/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">01 — Overview</div>
+    <h2 class="cs-section-title rev">Designs that <em>work hard in the real world.</em></h2>
+    <div class="cs-body rev">
+      <p>Flyers and promotional posters live in competitive visual environments — shop windows, noticeboards, social media feeds, and street-level signage. They have a fraction of a second to catch attention, communicate the key message, and prompt action. That constraint makes them one of the most discipline-heavy areas of graphic design.</p>
+      <p>This collection brings together flyer and poster work across a range of event types and promotional contexts — grand openings, seasonal promotions, service announcements, and event marketing. Each piece was designed for a specific purpose, audience, and output format, whether destined for print production or digital distribution.</p>
+    </div>
+  </div>
+
+  <!-- 02 THE DESIGNS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Work</div>
+    <h2 class="cs-section-title rev">Flyers &amp; posters <em>across formats.</em></h2>
+    <div class="cs-body rev"><p>Each design below was created for a specific brief — different clients, different audiences, different messages. The common thread is a clear visual hierarchy, strong typography, and a design that communicates the most important information at a glance.</p></div>
+
+    <div class="cs-flyer-grid rev">
+
+      <!-- DESIGN 1 — Grand Opening Bubble Tea (from screenshot) -->
+      <div class="cs-flyer-card">
+        <img src="../assets/flyers/flyer-4.png" alt="Promotional Poster"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-flyer-ph" style="display:none"><span>🧋</span><span>Bubble Bliss<br>Signature Ice Tea Promotion</span></div>
+        <div class="cs-flyer-info">
+          <div class="cs-flyer-cat">Food & Beverage Advertisement</div>
+          <div class="cs-flyer-name">Bubble Bliss — Signature Ice Tea Promotion</div>
+          <div class="cs-flyer-desc">Promotional poster designed for Bubble Bliss, a modern bubble tea brand. The design combines premium product photography, bold typography, and a promotional discount offer to attract customers and increase brand awareness. Created for both print marketing and social media advertising campaigns.</div>
+          <div class="cs-flyer-tags">
+            <span class="cs-flyer-tag">Canva</span>
+            <span class="cs-flyer-tag">A4</span>
+            <span class="cs-flyer-tag">Print + Digital</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGN 2 — Add yours -->
+      <div class="cs-flyer-card">
+        <img src="../assets/flyers/flyer-2.png" alt="Sugar Bloom Bakery"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-flyer-ph" style="display:none"><span>📄</span><span>Sugar Bloom Bakery<br>Weekend Special Offers</span></div>
+        <div class="cs-flyer-info">
+          <div class="cs-flyer-cat">Bakery Promotional Flyer</div>
+          <div class="cs-flyer-name">Sugar Bloom Bakery — Weekend Special Offers</div>
+          <div class="cs-flyer-desc">Promotional flyer designed for Sugar Bloom Bakery to showcase seasonal cupcakes and limited-time offers. The design features appetizing product photography, elegant typography, and a warm color palette that reflects the brand's inviting and handcrafted bakery experience. Created for both print distribution and digital marketing campaigns.</div>
+          <div class="cs-flyer-tags">
+            <span class="cs-flyer-tag">Canva</span>
+            <span class="cs-flyer-tag">A4</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGN 3 — Add yours -->
+      <div class="cs-flyer-card">
+        <img src="../assets/flyers/flyer-1.png" alt="Restaurant Menu Design"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-flyer-ph" style="display:none"><span>📄</span><span>Tokyo Tide Sushi<br>Signature Menu Flyer</span></div>
+        <div class="cs-flyer-info">
+          <div class="cs-flyer-cat">Restaurant Menu Design</div>
+          <div class="cs-flyer-name">Tokyo Tide Sushi — Signature Menu Flyer</div>
+          <div class="cs-flyer-desc">Modern menu flyer designed for Tokyo Tide Sushi, showcasing signature rolls, nigiri, and sashimi offerings. The design combines premium food photography, contemporary geometric layouts, and elegant typography to create a visually engaging dining experience while highlighting featured menu items and pricing. Designed for restaurant marketing, in-store display, and digital promotion.</div>
+          <div class="cs-flyer-tags">
+            <span class="cs-flyer-tag">Illustrator</span>
+            <span class="cs-flyer-tag">A3</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGN 4 — Add yours -->
+      <div class="cs-flyer-card">
+        <img src="../assets/flyers/flyer-3.png" alt="Ceylon Adventure Tours"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-flyer-ph" style="display:none"><span>📄</span><span>Ceylon Adventure Tours<br>Discover Sri Lanka</span></div>
+        <div class="cs-flyer-info">
+          <div class="cs-flyer-cat">Travel & Tourism Advertisement</div>
+          <div class="cs-flyer-name">Ceylon Adventure Tours — Discover Sri Lanka</div>
+          <div class="cs-flyer-desc">Promotional travel flyer designed for Ceylon Adventure Tours, highlighting Sri Lanka's most iconic destinations including Sigiriya, Kandy, Ella, and Nuwara Eliya. The design combines vibrant destination photography, compelling travel package information, and clear call-to-action elements to inspire bookings and showcase unforgettable travel experiences. Created for digital marketing campaigns and travel agency promotions.</div>
+          <div class="cs-flyer-tags">
+            <span class="cs-flyer-tag">Canva</span>
+            <span class="cs-flyer-tag">Digital</span>
+          </div>
+        </div>
+      </div>
+
+      
+    </div>
+     </div>
+
+  <!-- 03 DESIGN APPROACH -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Design Approach</div>
+    <h2 class="cs-section-title rev">What makes a flyer <em>actually work.</em></h2>
+    <div class="cs-body rev">
+      <p>Every flyer and poster in this collection was built around the same core principle — the most important information must be readable in under two seconds. Everything else exists to support that goal.</p>
+    </div>
+    <div class="cs-approach-grid rev">
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Visual Hierarchy</div>
+        <div class="cs-approach-text">The headline is always the largest element. Supporting details (date, location, offer) follow in a clear reading order. Nothing competes with the primary message.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Typography</div>
+        <div class="cs-approach-text">Bold, high-contrast type for the headline. Clean, readable secondary fonts for details. Type weight and size differences do the heavy lifting in guiding the eye.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Colour &amp; Contrast</div>
+        <div class="cs-approach-text">High contrast between background and text is non-negotiable for print. Colour palettes are kept tight — two or three colours maximum — to feel intentional rather than chaotic.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Print vs Digital</div>
+        <div class="cs-approach-text">Print versions use CMYK colour profiles and include bleed. Digital versions are optimised for screen — lighter backgrounds, slightly different sizing — without rebuilding from scratch.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SPECS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Specifications</div>
+    <h2 class="cs-section-title rev">Print-ready <em>from day one.</em></h2>
+    <div class="cs-body rev"><p>All designs are delivered print-ready — the client can take the PDF directly to a print shop without needing any additional technical preparation.</p></div>
+    <div style="background:var(--cream2);border-radius:14px;overflow:hidden;border:1.5px solid var(--border);margin-top:20px" class="rev">
+      <table class="cs-spec-table">
+        <tr><td>Formats</td><td>A4 (210×297mm) · A3 (297×420mm) · Custom sizes</td></tr>
+        <tr><td>Orientation</td><td>Portrait &amp; Landscape depending on brief</td></tr>
+        <tr><td>Colour Mode</td><td>CMYK for print · RGB for digital</td></tr>
+        <tr><td>Resolution</td><td>300 DPI (print) · 72–150 DPI (digital)</td></tr>
+        <tr><td>File Formats</td><td>PDF · PNG · JPEG</td></tr>
+        <tr><td>Bleed</td><td>3–5mm bleed on print versions</td></tr>
+        <tr><td>Tools</td><td>Canva · Adobe Photoshop · Adobe Illustrator</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 05 TOOLS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Tools</div>
+    <h2 class="cs-section-title rev">The right tool <em>for each job.</em></h2>
+    <div class="cs-body rev"><p>Different briefs call for different tools. Canva works well for fast turnaround and client-editable templates. Photoshop handles photo-composite work. Illustrator is the choice for vector-based designs that need to scale cleanly to A3 and beyond.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Canva</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🖼️</div><span class="cs-tech-name">Photoshop</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">✏️</div><span class="cs-tech-name">Illustrator</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🖨️</div><span class="cs-tech-name">Print Ready</span></div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Event Invitation Suite — Birthday, Baby Shower &amp; More</div>
+    </div>
+    <a href="invitation_case_study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>

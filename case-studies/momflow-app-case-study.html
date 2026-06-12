@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MomFlow — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">UI / UX Design</span>
+        <span class="cs-tag">Mobile App</span>
+        <span class="cs-tag">FlutterFlow</span>
+        <span class="cs-tag">Firebase</span>
+        <span class="cs-tag">2025</span>
+      </div>
+      <h1 class="cs-hero-title rev">MomFlow —<br><em>Wellness App for New Moms</em></h1>
+      <p class="cs-hero-sub rev">An all-in-one mobile app helping new moms manage daily routines, track baby milestones, and access 24/7 AI-powered emotional support.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">UI/UX Designer & App Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Timeline</div>
+          <div class="cs-meta-val">12 Weeks · 2025</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-val">iOS · Android</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Status</div>
+          <div class="cs-meta-val pill">✦ Live</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+
+    <!-- HERO RIGHT: cover image -->
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          ═══════════════════════════════════════
+          HERO COVER IMAGE
+          Size: 1040 × 600px (landscape mockup)
+          Export from Figma as PNG
+          Place in: assets/portfolio/momflow-cover.png
+          ═══════════════════════════════════════
+        -->
+        <img src="../assets/momflow-cover.png" alt="MomFlow App"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🖼️</span><span>Add: assets/momflow-cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>MomFlow?</em></h2>
+        <div class="cs-body rev">
+          <p>MomFlow is a wellness-focused mobile application designed to support mothers throughout pregnancy, postpartum recovery, and early motherhood. The platform combines planning tools, emotional wellbeing tracking, educational resources, and AI-powered assistance to help mothers navigate one of the most important stages of their lives.</p>
+          <p>Many existing parenting applications focus on either baby tracking or general health management. MomFlow was created to provide a more holistic experience that prioritises the wellbeing of mothers themselves while delivering practical tools that fit into their daily routines.</p>
+          <p>As the sole contributor, I was responsible for the complete product lifecycle — UX research, UI design, FlutterFlow development, backend integration, testing, and deployment.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Client</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Freelance Project</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Industry</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Health & Wellness · Parenting</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Deliverables</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">UX Research · UI Design · App Dev · Testing</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Live Link</div><a href="https://play.google.com/store/apps/details?id=com.mycompany.momflow" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">View on Google Play ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PROBLEM & SOLUTION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Challenge</div>
+    <h2 class="cs-section-title rev">Problem &amp; <em>Solution.</em></h2>
+    <div class="cs-two-col">
+      <div class="cs-box problem rev">
+        <span class="cs-box-icon">⚠️</span>
+        <div class="cs-box-title">The Problem</div>
+        <div class="cs-box-text">New mothers juggle physical recovery, emotional wellbeing, childcare, and self-care simultaneously. Existing apps focus heavily on infant care while overlooking the mother's mental health, organisation needs, and support systems.</div>
+      </div>
+      <div class="cs-box rev">
+        <span class="cs-box-icon">✅</span>
+        <div class="cs-box-title">The Solution</div>
+        <div class="cs-box-text">MomFlow is an all-in-one wellness companion combining emotional wellbeing tracking, AI-powered support, planning tools, and educational resources in a calm, easy-to-use mobile experience tailored specifically for mothers.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 RESEARCH -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Research &amp; Discovery</div>
+    <h2 class="cs-section-title rev">Understanding the <em>users.</em></h2>
+    <div class="cs-body rev">
+      <p>Research focused on the daily challenges experienced by pregnant women and new mothers — emotional stress, information overload, lack of organisation tools, and limited personalised support. User interviews, competitor analysis, and wellness app benchmarking were used to validate assumptions.</p>
+    </div>
+    <div class="cs-research-grid">
+      <div class="cs-research-card rev">
+        <span class="cs-research-icon">👥</span>
+        <span class="cs-research-num">12</span>
+        <span class="cs-research-label">User Interviews Conducted</span>
+        <div class="cs-research-note">Age range 25–40, across Canada and UK</div>
+      </div>
+      <div class="cs-research-card rev">
+        <span class="cs-research-icon">📋</span>
+        <span class="cs-research-num">48</span>
+        <span class="cs-research-label">Survey Responses</span>
+        <div class="cs-research-note">Distributed via social media</div>
+      </div>
+      <div class="cs-research-card rev">
+        <span class="cs-research-icon">🔍</span>
+        <span class="cs-research-num">5</span>
+        <span class="cs-research-label">Competitor Apps Analysed</span>
+        <div class="cs-research-note">Feature mapping and UX benchmarking</div>
+      </div>
+    </div>
+    <div style="margin-top:28px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:14px">Key Insights</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">01</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Fragmented tools cause overwhelm</strong> — Many mothers used 4–5 separate apps for tracking, planning, and support.</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">02</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Personalisation over generic content</strong> — Users wanted guidance tailored to their stage and situation, not one-size-fits-all advice.</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">03</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Trust and simplicity matter most</strong> — Emotional comfort and ease of use outweighed feature quantity in user priorities.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 PERSONAS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — User Personas</div>
+    <h2 class="cs-section-title rev">Designing for <em>real people.</em></h2>
+    <div class="cs-body rev"><p>Based on research findings, I created personas to keep design decisions grounded in real user needs throughout the project.</p></div>
+    <div class="cs-persona-grid">
+      <div class="cs-persona rev">
+        <div class="cs-persona-avatar">👩</div>
+        <div>
+          <div class="cs-persona-name">Carol, 29</div>
+          <div class="cs-persona-role">First-Time Mother · Maternity Leave</div>
+          <div class="cs-persona-quote">"I want reliable support and guidance without spending hours searching online."</div>
+          <div class="cs-persona-tags">
+            <span class="cs-persona-tag">Manage daily routines</span>
+            <span class="cs-persona-tag">Track wellbeing</span>
+            <span class="cs-persona-tag">Overwhelmed by advice</span>
+          </div>
+        </div>
+      </div>
+      <div class="cs-persona rev">
+        <div class="cs-persona-avatar">👩‍💼</div>
+        <div>
+          <div class="cs-persona-name">Emily, 35</div>
+          <div class="cs-persona-role">Working Mother of Two</div>
+          <div class="cs-persona-quote">"I need quick access to tools that fit into my busy schedule."</div>
+          <div class="cs-persona-tags">
+            <span class="cs-persona-tag">Stay organised</span>
+            <span class="cs-persona-tag">Balance family & self</span>
+            <span class="cs-persona-tag">Limited time</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 PROCESS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Design &amp; Development Process</div>
+    <h2 class="cs-section-title rev">How I <em>brought MomFlow to life.</em></h2>
+    <div class="cs-process">
+      <div class="cs-process-step rev">
+        <div class="cs-step-num">01</div>
+        <div class="cs-step-body">
+          <div class="cs-step-title">Define &amp; Ideate</div>
+          <div class="cs-step-text">Researched challenges faced by new mothers through competitor analysis and user feedback. Identified the opportunity to create a single platform combining wellness support, planning tools, and AI assistance. Translated user needs into feature requirements and product goals.</div>
+        </div>
+      </div>
+      <div class="cs-process-step rev">
+        <div class="cs-step-num">02</div>
+        <div class="cs-step-body">
+          <div class="cs-step-title">Information Architecture &amp; User Flows</div>
+          <div class="cs-step-text">Mapped the complete user journey including onboarding, wellness tracking, planner management, and AI interactions. Navigation structures were designed to minimise friction and give users fast access to daily tools.</div>
+        </div>
+      </div>
+      <div class="cs-process-step rev">
+        <div class="cs-step-num">03</div>
+        <div class="cs-step-body">
+          <div class="cs-step-title">Wireframing</div>
+          <div class="cs-step-text">Low-fidelity wireframes covered screen layouts, information hierarchy, and navigation patterns across 20+ screens. Multiple iterations refined the onboarding flow and dashboard structure before any visual design began.</div>
+        </div>
+      </div>
+      <div class="cs-process-step rev">
+        <div class="cs-step-num">04</div>
+        <div class="cs-step-body">
+          <div class="cs-step-title">Visual Design &amp; Prototyping</div>
+          <div class="cs-step-text">High-fidelity designs in Figma using a calming visual identity — soft pinks, accessible typography, and rounded components. Built a full design system with reusable components before creating interactive prototypes to validate flows.</div>
+        </div>
+      </div>
+      <div class="cs-process-step rev">
+        <div class="cs-step-num">05</div>
+        <div class="cs-step-body">
+          <div class="cs-step-title">Application Development</div>
+          <div class="cs-step-text">Built in FlutterFlow — responsive screens, navigation, Firebase integration, authentication, AI features via OpenAI API, subscription management via RevenueCat, and email via SendGrid. Special focus on performance and cross-platform compatibility.</div>
+        </div>
+      </div>
+      <div class="cs-process-step rev">
+        <div class="cs-step-num">06</div>
+        <div class="cs-step-body">
+          <div class="cs-step-title">Testing &amp; Iteration</div>
+          <div class="cs-step-text">Continuous functional and usability testing throughout development. Feedback sessions resulted in improvements to onboarding, dashboard layout, and feature discoverability. Multiple iterations produced a more polished final product.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 WIREFRAMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Wireframes</div>
+    <h2 class="cs-section-title rev">From sketch <em>to structure.</em></h2>
+    <div class="cs-body rev">
+      <p>Wireframes covered key user journeys: onboarding, wellness tracking, AI support, daily planning, and resource discovery. Testing layouts early helped simplify navigation and ensure key features were reachable with minimal taps.</p>
+    </div>
+
+    <!--
+      ═══════════════════════════════════════
+      WIREFRAME OVERVIEW IMAGE (full width)
+      Size: 1040 × 455px
+      Export from Figma: all wireframe screens together
+      Place at: assets/momflow-wireframes.png
+      ═══════════════════════════════════════
+    -->
+    <img src="../assets/Momflow/momflow_components.png" alt="MomFlow Wireframes" class="cs-wireframe-img rev"
+      onerror="this.style.display='none';document.getElementById('wf-ph').style.display='flex'">
+    <div id="wf-ph" class="cs-wireframe-ph rev" style="display:none">
+      <span>📐</span>
+      <span>Wireframe overview image</span>
+      <span style="font-size:.7rem;opacity:.7">Save as: assets/momflow-wireframes.png · 1040 × 455px PNG</span>
+    </div>
+    <div class="cs-img-caption rev">Component library for consistent design</div>
+
+    <!-- WIREFRAME MOBILE SCREENS (individual phone screens) -->
+  
+    <div class="cs-screens rev" style="margin-top:24px">
+      <div class="cs-screen">
+        <img src="../assets/Momflow/add_task.png" alt="Add Task wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/ai_journal.png" alt="AI Journal wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/baby_grwoth.png" alt="Baby Growth wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></span></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/child_growth_tracker.png" alt="Child Growth Tracker wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/daily_planner.png" alt="Daily Planner wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></span></div>'">
+      </div>
+
+      <div class="cs-screen">
+        <img src="../assets/Momflow/edit_profile.png" alt="Edit Profile wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/how_are_you_feeling.png" alt="How are you feeling wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/login.png" alt="Login wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></span></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/payment_wall.png" alt="Payment wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></div>'">
+      </div>
+      <div class="cs-screen">
+        <img src="../assets/Momflow/subscription_payment.png" alt="Subscription payment wireframe"
+          onerror="this.parentElement.outerHTML='<div class=\'cs-screen-ph\'></span></div>'">
+      </div>
+    </div>
+    <div class="cs-img-caption rev">Scroll to see all wireframe screens</div>
+  </div>
+
+  <!-- 07 FINAL DESIGN -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Final Design</div>
+    <h2 class="cs-section-title rev">The finished <em>product.</em></h2>
+    <div class="cs-body rev">
+      <p>MomFlow is now available on Google Play, providing mothers with a supportive digital companion for pregnancy, postpartum recovery, and early motherhood. The app combines wellness tracking, planning tools, educational resources, and AI-powered assistance in one easy-to-use platform.
+    </p>
+    <div><a href="https://play.google.com/store/apps/details?id=com.mycompany.momflow" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">View on Google Play ↗</a></div>
+          
+    </div>
+
+    </div>
+
+  <!-- 08 KEY FEATURES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Key Features</div>
+    <h2 class="cs-section-title rev">What makes it <em>work.</em></h2>
+    <div class="cs-features">
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">🤖</div>
+        <div>
+          <div class="cs-feature-title">AI Wellness Assistant</div>
+          <div class="cs-feature-text">Personalised guidance and support via OpenAI API — available 24/7 within the app.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">😊</div>
+        <div>
+          <div class="cs-feature-title">Mood &amp; Wellness Tracking</div>
+          <div class="cs-feature-text">Track emotional wellbeing over time and identify patterns with visual charts.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📅</div>
+        <div>
+          <div class="cs-feature-title">Daily Planner</div>
+          <div class="cs-feature-text">Organise appointments, routines, and self-care activities — all synced via Firebase.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📊</div>
+        <div>
+          <div class="cs-feature-title">Baby Growth Charts</div>
+          <div class="cs-feature-text">Visual milestone and growth tracking with progress charts for weight, height, and development.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">🖼️</div>
+        <div>
+          <div class="cs-feature-title">Photo Milestone Uploads</div>
+          <div class="cs-feature-text">Securely upload and store baby photos via Firebase Storage for milestone memories.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">💳</div>
+        <div>
+          <div class="cs-feature-title">Subscription System</div>
+          <div class="cs-feature-text">In-app purchases and subscription tiers managed via RevenueCat.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Built with the <em>right tools.</em></h2>
+    <div class="cs-body rev"><p>Each tool was chosen to balance development speed, scalability, and user experience quality — delivering a production-ready app without a large engineering team.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Figma</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔥</div><span class="cs-tech-name">FlutterFlow</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">☁️</div><span class="cs-tech-name">Firebase</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🤖</div><span class="cs-tech-name">OpenAI API</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">💳</div><span class="cs-tech-name">RevenueCat</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📧</div><span class="cs-tech-name">SendGrid</span></div>
+    </div>
+  </div>
+
+  <!-- 10 CHALLENGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Challenges &amp; Solutions</div>
+    <h2 class="cs-section-title rev">Problems I <em>solved along the way.</em></h2>
+    <div class="cs-challenge-list">
+      <div class="cs-challenge rev">
+        <div>
+          <div class="cs-challenge-label prob">⚠ Challenge</div>
+          <div class="cs-challenge-text">Creating a feature-rich app without overwhelming users — too many features visible at once caused confusion in early testing.</div>
+        </div>
+        <div>
+          <div class="cs-challenge-label sol">✓ How I solved it</div>
+          <div class="cs-challenge-text">Implemented progressive disclosure and simplified navigation so users discover features naturally rather than seeing everything at once.</div>
+        </div>
+      </div>
+      <div class="cs-challenge rev">
+        <div>
+          <div class="cs-challenge-label prob">⚠ Challenge</div>
+          <div class="cs-challenge-text">Balancing emotional support features with practical productivity tools in a single unified experience.</div>
+        </div>
+        <div>
+          <div class="cs-challenge-label sol">✓ How I solved it</div>
+          <div class="cs-challenge-text">Designed a dashboard that integrates wellness insights and organisational tools together — mood check-ins lead naturally into daily planning.</div>
+        </div>
+      </div>
+      <div class="cs-challenge rev">
+        <div>
+          <div class="cs-challenge-label prob">⚠ Challenge</div>
+          <div class="cs-challenge-text">FlutterFlow limitations for advanced AI and subscription logic that the visual editor couldn't handle natively.</div>
+        </div>
+        <div>
+          <div class="cs-challenge-label sol">✓ How I solved it</div>
+          <div class="cs-challenge-text">Wrote custom Dart code for AI API calls and RevenueCat integration, extending FlutterFlow where needed rather than being limited by it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">11 — Outcomes</div>
+    <h2 class="cs-section-title rev">What we <em>achieved.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Live</span>
+        <span class="cs-outcome-label">Published on Google Play Store</span>
+        <span class="cs-outcome-note">iOS App Store coming soon</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">4.8★</span>
+        <span class="cs-outcome-label">Average rating in early reviews</span>
+        <span class="cs-outcome-note">Based on first 20 reviews</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">40+</span>
+        <span class="cs-outcome-label">Screens designed and developed</span>
+        <span class="cs-outcome-note">Full design system included</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">12 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>Emotional design is a product feature</strong> — The colour, tone, and copy of MomFlow directly affect how users feel. Designing for emotion requires the same rigour as designing for usability.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>Ship early, get real feedback</strong> — User research is essential for emotionally sensitive products. Assumptions differ significantly from real user needs — getting a beta in front of real moms early revealed issues no internal testing would have caught.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>Know when to leave the visual editor</strong> — FlutterFlow is powerful but has real limits. Learning when to write custom Dart rather than fighting the tool's constraints was one of the most valuable technical lessons of this project.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">TogetherBites — Food Sharing Platform</div>
+    </div>
+    <a href="togetherbites-case-study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

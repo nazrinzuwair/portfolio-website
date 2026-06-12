@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nadeera Gems — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.cs-full-img{width:100%;border-radius:14px;border:1px solid var(--border);display:block;margin-top:28px;box-shadow:0 4px 24px rgba(124,58,237,.08)}
+.cs-full-ph{width:100%;aspect-ratio:16/8;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;margin-top:28px;text-align:center;padding:32px}
+.cs-full-ph span:first-child{font-size:2rem}
+
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{aspect-ratio:16/9;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+.cs-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.cs-page-grid img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.cs-page-grid-ph{aspect-ratio:4/3;border-radius:12px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink3);font-size:.65rem;text-align:center;padding:10px}
+.cs-page-grid-ph span:first-child{font-size:1.5rem}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* scope flow — horizontal numbered steps */
+.cs-scope-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:24px}
+.cs-scope-card{background:var(--cream2);border-radius:14px;padding:18px 16px;border:1.5px solid var(--border);text-align:center}
+.cs-scope-num{font-size:.7rem;font-weight:700;color:var(--p);text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.cs-scope-title{font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.cs-scope-text{font-size:.75rem;color:var(--ink3);line-height:1.5;font-weight:300}
+
+/* woocommerce features */
+.cs-woo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.cs-woo-item{display:flex;gap:10px;align-items:flex-start;padding:12px 16px;background:var(--cream2);border-radius:12px;border:1.5px solid var(--border)}
+.cs-woo-icon{font-size:1.1rem;flex-shrink:0}
+.cs-woo-text{font-size:.85rem;color:var(--ink2);line-height:1.5;font-weight:300}
+.cs-woo-text strong{color:var(--ink);display:block;margin-bottom:2px;font-size:.82rem}
+
+@media(max-width:768px){
+  .cs-img-2up{grid-template-columns:1fr}
+  .cs-scope-flow{grid-template-columns:repeat(2,1fr)}
+  .cs-page-grid,.cs-woo-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .cs-scope-flow,.cs-page-grid,.cs-woo-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">WordPress</span>
+        <span class="cs-tag">WooCommerce</span>
+        <span class="cs-tag">Elementor</span>
+        <span class="cs-tag">E-Commerce</span>
+        <span class="cs-tag">Freelance · 2022</span>
+      </div>
+      <h1 class="cs-hero-title rev">Nadeera Gems —<br><em>E-Commerce Store</em></h1>
+      <p class="cs-hero-sub rev">My first full e-commerce build — a WooCommerce store for a Sri Lanka-based gems and jewellery business, with a full product catalogue, shopping cart, checkout, order tracking, and worldwide delivery support.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Web Designer &amp; Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Context</div>
+          <div class="cs-meta-val">Freelance · 2022</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-val">WordPress · WooCommerce</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Status</div>
+          <div class="cs-meta-val pill">✦ Live</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER
+          Save as: assets/nadeera/cover.png
+          Browser mockup of homepage
+          Size: 1040 × 600px
+        -->
+        <img src="../assets/nadeera/cover.png" alt="Nadeera Gems Website"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>💎</span><span>assets/nadeera/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>Nadeera Gems?</em></h2>
+        <div class="cs-body rev">
+          <p>Nadeera Gems and Jewellers is a Sri Lanka-based gems and jewellery business selling certified natural precious and semi-precious stones, gem jewellery, and gold jewellery — both island-wide and worldwide. The business needed a proper online store to reach customers beyond their local market and accept orders internationally.</p>
+          <p>This was my first full e-commerce project, built in 2022. The brief was to create a complete online shop from scratch — product listings across multiple categories, a shopping cart, checkout, customer accounts, and order tracking. It was a significant technical scope for an early project, and completing it taught me a great deal about how WooCommerce works end-to-end.</p>
+          <p>The site is built on WordPress with Elementor for page layout and WooCommerce handling all the store functionality — from product catalogue management through to the order lifecycle.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Client</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Nadeera Gems &amp; Jewellers · Sri Lanka</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Industry</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Gems · Jewellery · E-Commerce</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Context</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">First e-commerce build · Freelance 2022</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Live Site</div><a href="https://nadeeragems.com" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">nadeeragems.com ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 THE BRIEF -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Brief</div>
+    <h2 class="cs-section-title rev">Problem &amp; <em>Solution.</em></h2>
+    <div class="cs-two-col">
+      <div class="cs-box problem rev">
+        <span class="cs-box-icon">⚠️</span>
+        <div class="cs-box-title">The Problem</div>
+        <div class="cs-box-text">The business was selling gems and jewellery without a digital storefront — relying on in-person sales and informal channels. This limited their reach to the local market and made it impossible to serve international customers efficiently. They needed a proper online shop with product pages, a cart, checkout, and delivery tracking.</div>
+      </div>
+      <div class="cs-box rev">
+        <span class="cs-box-icon">✅</span>
+        <div class="cs-box-title">The Solution</div>
+        <div class="cs-box-text">A complete WooCommerce store with three product category shops (Gem Stones, Gem Jewellery, Gold Jewellery), individual product pages with images and descriptions, a full cart-to-checkout flow, customer account registration and login, and an order tracking page — all on a visually elegant site suited to a jewellery brand.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 SCOPE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Project Scope</div>
+    <h2 class="cs-section-title rev">What this project <em>actually involved.</em></h2>
+    <div class="cs-body rev">
+      <p>For a 2022 freelance project, the technical scope was substantial. Building a complete e-commerce store is significantly more complex than a brochure site — it requires understanding WooCommerce's product, order, and user systems, configuring payment and shipping, and designing a purchase journey that converts browsers into buyers.</p>
+    </div>
+    <div class="cs-scope-flow rev">
+      <div class="cs-scope-card">
+        <div class="cs-scope-num">01</div>
+        <div class="cs-scope-title">WordPress Setup</div>
+        <div class="cs-scope-text">Theme, hosting, domain, plugin configuration</div>
+      </div>
+      <div class="cs-scope-card">
+        <div class="cs-scope-num">02</div>
+        <div class="cs-scope-title">Visual Design</div>
+        <div class="cs-scope-text">Homepage layout in Elementor, brand-appropriate elegance</div>
+      </div>
+      <div class="cs-scope-card">
+        <div class="cs-scope-num">03</div>
+        <div class="cs-scope-title">WooCommerce Store</div>
+        <div class="cs-scope-text">Products, categories, cart, checkout, accounts</div>
+      </div>
+      <div class="cs-scope-card">
+        <div class="cs-scope-num">04</div>
+        <div class="cs-scope-title">Order &amp; Delivery</div>
+        <div class="cs-scope-text">Order tracking, island-wide and worldwide shipping</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 HOMEPAGE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Homepage Design</div>
+    <h2 class="cs-section-title rev">First impressions <em>for a jewellery brand.</em></h2>
+    <div class="cs-body rev">
+      <p>Jewellery websites need to feel aspirational from the very first scroll. The homepage was designed to establish the brand's identity before driving visitors into the shop — a full-width hero with brand language ("Magical Blend of Elegance &amp; Opulence"), trust signals (certified natural stones, express delivery, safe packaging), three collection entry points, and featured product listings.</p>
+    </div>
+
+    <!--
+      HOMEPAGE SCREENSHOT
+      Save as: assets/nadeera/homepage.png
+      Full homepage screenshot
+      Size: 1040 × 600px
+    -->
+    <img src="../assets/nadeera/homepage.png" alt="Nadeera Gems Homepage"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('hp-ph').style.display='flex'">
+    <div id="hp-ph" class="cs-full-ph rev" style="display:none">
+      <span>💎</span><span>Homepage screenshot</span>
+      <span style="font-size:.7rem;opacity:.7">assets/nadeera/homepage.png · 1040 × 600px</span>
+    </div>
+    <div class="cs-img-caption rev">Homepage — hero, trust signals, and collection entry points</div>
+
+    <!-- Trust signals detail -->
+    <div style="margin-top:24px;background:var(--cream2);border-radius:16px;padding:22px 26px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Homepage Trust Signals</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
+        <div style="text-align:center;padding:12px">
+          <div style="font-size:1.5rem;margin-bottom:6px">💎</div>
+          <div style="font-size:.8rem;font-weight:700;color:var(--ink)">Quality Jewellery</div>
+          <div style="font-size:.75rem;color:var(--ink3);font-weight:300">Certified 100% natural precious and semi-precious stones</div>
+        </div>
+        <div style="text-align:center;padding:12px">
+          <div style="font-size:1.5rem;margin-bottom:6px">🚚</div>
+          <div style="font-size:.8rem;font-weight:700;color:var(--ink)">Express Delivery</div>
+          <div style="font-size:.75rem;color:var(--ink3);font-weight:300">Island wide and worldwide delivery</div>
+        </div>
+        <div style="text-align:center;padding:12px">
+          <div style="font-size:1.5rem;margin-bottom:6px">⭐</div>
+          <div style="font-size:.8rem;font-weight:700;color:var(--ink)">Best Services</div>
+          <div style="font-size:.75rem;color:var(--ink3);font-weight:300">Safe packaging with top notch service</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 PRODUCT CATEGORIES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Product Categories</div>
+    <h2 class="cs-section-title rev">Three shops, <em>one store.</em></h2>
+    <div class="cs-body rev">
+      <p>The product catalogue was organised into three distinct categories — each with its own shop page, product listings, and collection-level photography. This structure made browsing intuitive and kept the different product types clearly separated for customers who knew exactly what they were looking for.</p>
+    </div>
+
+    <!--
+      CATEGORY PAGES — 3 screenshots
+      Save to: assets/nadeera/cat-gemstones.png / cat-gemjewellery.png / cat-goldjewellery.png
+      Size: 640 × 480px each
+    -->
+    <div class="cs-page-grid rev">
+      <div>
+        <img src="../assets/nadeera/cat-gemstones.png" alt="Gem Stones"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🪨</span><span>Gem Stones<br>cat-gemstones.png</span></div>'">
+        <div class="cs-img-caption">Gem Stones category</div>
+      </div>
+      <div>
+        <img src="../assets/nadeera/cat-gemjewellery.png" alt="Gem Jewellery"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>💍</span><span>Gem Jewellery<br>cat-gemjewellery.png</span></div>'">
+        <div class="cs-img-caption">Gem Jewellery category</div>
+      </div>
+      <div>
+        <img src="../assets/nadeera/cat-goldjewellery.png" alt="Gold Jewellery"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>📿</span><span>Gold Jewellery<br>cat-goldjewellery.png</span></div>'">
+        <div class="cs-img-caption">Gold Jewellery category</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 WOOCOMMERCE FEATURES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — WooCommerce Functionality</div>
+    <h2 class="cs-section-title rev">The full e-commerce <em>feature set.</em></h2>
+    <div class="cs-body rev">
+      <p>Beyond the visual design, this project required configuring WooCommerce's complete commerce engine. Each feature below involved understanding how WooCommerce works, setting it up correctly, and ensuring it integrated smoothly with the rest of the site.</p>
+    </div>
+    <div class="cs-woo-grid rev">
+      <div class="cs-woo-item">
+        <div class="cs-woo-icon">🛍️</div>
+        <div class="cs-woo-text"><strong>Product Catalogue</strong>Multiple product pages with images, descriptions, pricing, and category assignment across three product types</div>
+      </div>
+      <div class="cs-woo-item">
+        <div class="cs-woo-icon">🛒</div>
+        <div class="cs-woo-text"><strong>Shopping Cart</strong>Add-to-cart functionality, cart page, quantity management, and cart icon in the navigation</div>
+      </div>
+      <div class="cs-woo-item">
+        <div class="cs-woo-icon">💳</div>
+        <div class="cs-woo-text"><strong>Checkout Flow</strong>WooCommerce checkout with billing and shipping address fields, order summary, and confirmation</div>
+      </div>
+      <div class="cs-woo-item">
+        <div class="cs-woo-icon">👤</div>
+        <div class="cs-woo-text"><strong>Customer Accounts</strong>Login and registration, My Account page, order history, and saved addresses for returning customers</div>
+      </div>
+      <div class="cs-woo-item">
+        <div class="cs-woo-icon">📦</div>
+        <div class="cs-woo-text"><strong>Order Tracking</strong>Dedicated order tracking page so customers can follow their delivery status after purchase</div>
+      </div>
+      <div class="cs-woo-item">
+        <div class="cs-woo-icon">🌍</div>
+        <div class="cs-woo-text"><strong>Worldwide Shipping</strong>Shipping configured for both island-wide (Sri Lanka) and international delivery, with appropriate zones and rates</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 07 OTHER PAGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Other Key Pages</div>
+    <h2 class="cs-section-title rev">Supporting the <em>full customer journey.</em></h2>
+
+    <!--
+      OTHER PAGES — 3 screenshots
+      Save to: assets/nadeera/page-account.png / page-track.png / page-contact.png
+      Size: 640 × 480px each
+    -->
+    <div class="cs-page-grid rev">
+      <div>
+        <img src="../assets/nadeera/page-account.png" alt="My Account"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>👤</span><span>My Account<br>page-account.png</span></div>'">
+        <div class="cs-img-caption">Login / Register &amp; My Account</div>
+      </div>
+      <div>
+        <img src="../assets/nadeera/page-track.png" alt="Order Tracking"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>📦</span><span>Order Tracking<br>page-track.png</span></div>'">
+        <div class="cs-img-caption">Order Tracking</div>
+      </div>
+      <div>
+        <img src="../assets/nadeera/page-contact.png" alt="Contact"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>✉️</span><span>Contact Us<br>page-contact.png</span></div>'">
+        <div class="cs-img-caption">Contact Us</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Built with <em>WordPress &amp; WooCommerce.</em></h2>
+    <div class="cs-body rev"><p>WordPress with WooCommerce is the dominant stack for independent e-commerce — it gives small businesses a full online store they can manage themselves, without the ongoing fees of hosted platforms like Shopify. Elementor handled the visual page building, keeping the brand-facing design flexible and maintainable.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🌐</div><span class="cs-tech-name">WordPress</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🛒</div><span class="cs-tech-name">WooCommerce</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">⚡</div><span class="cs-tech-name">Elementor</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Custom CSS</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📦</div><span class="cs-tech-name">WC Shipping</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">👤</div><span class="cs-tech-name">WC Accounts</span></div>
+    </div>
+  </div>
+
+  <!-- 09 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Outcomes</div>
+    <h2 class="cs-section-title rev">What was <em>delivered.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">3</span>
+        <span class="cs-outcome-label">Product category shops built</span>
+        <span class="cs-outcome-note">Gem Stones · Gem Jewellery · Gold Jewellery</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Full</span>
+        <span class="cs-outcome-label">End-to-end commerce flow</span>
+        <span class="cs-outcome-note">Browse → Cart → Checkout → Account → Track</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">🌍</span>
+        <span class="cs-outcome-label">Worldwide delivery enabled</span>
+        <span class="cs-outcome-note">Island-wide + international shipping</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-body rev">
+      <p style="background:var(--cream2);border-radius:12px;padding:16px 20px;border-left:3px solid var(--p);font-style:italic;font-weight:300">This was my first e-commerce project — completed in 2022, early in my freelance career. Looking back, there are things I would do differently today: stronger product photography guidance, a more refined visual system, and a cleaner mobile checkout experience. But completing this project was formative — it forced me to learn WooCommerce's full feature set end-to-end, and the foundations I built here directly informed all the WordPress work I have done since.</p>
+    </div>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>E-commerce is a system, not just a website.</strong> WooCommerce connects products, orders, customers, shipping, payments, and notifications into one flowing system. Understanding how all of these relate to each other — and how design decisions affect the commerce flow — was the most important thing I learned from this project.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>Product photography is half the design.</strong> On a jewellery e-commerce site, the product images carry enormous weight. When images are inconsistent or low quality, no amount of layout work compensates. I learned to be much more proactive about photo requirements and client briefing on this front.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>Every project teaches something the next one benefits from.</strong> This site, built early in my career, gave me the confidence and technical grounding to take on progressively more complex WordPress work — including the sites I've built since for Black Creek Industries, Black Creek Modular, and NR Creativo Solutions.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">NR Creativo — Website Redesign</div>
+    </div>
+    <a href="../case-studies/nr_creativo_solutions_project.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

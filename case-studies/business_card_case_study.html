@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Card Design — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* ── Business card grid ── */
+.cs-card-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+  margin-top:32px;
+}
+.cs-bc-card{
+  border-radius:16px;
+  overflow:hidden;
+  border:1.5px solid var(--border);
+  background:var(--white);
+  box-shadow:0 4px 20px rgba(0,0,0,.08);
+  transition:transform .2s;
+}
+.cs-bc-card:hover{transform:translateY(-3px)}
+
+/* the card image — landscape for business cards */
+.cs-bc-card img{
+  width:100%;
+  display:block;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  object-position:center;
+}
+.cs-bc-ph{
+  width:100%;
+  height:160px;
+  background:var(--cream2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:6px;
+  color:var(--ink3);
+  font-size:.75rem;
+  text-align:center;
+  padding:16px;
+}
+.cs-bc-ph span:first-child{font-size:1.8rem}
+
+.cs-bc-info{padding:16px 18px}
+.cs-bc-cat{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:4px}
+.cs-bc-name{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.cs-bc-desc{font-size:.8rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.cs-bc-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.cs-bc-tag{background:var(--cream2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;font-size:.65rem;font-weight:600;color:var(--ink3)}
+
+/* spec table */
+.cs-spec-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:.875rem}
+.cs-spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink2);font-weight:300}
+.cs-spec-table td:first-child{font-weight:700;color:var(--ink);width:38%}
+.cs-spec-table tr:last-child td{border-bottom:none}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* approach 2-col */
+.cs-approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.cs-approach-card{background:var(--cream2);border-radius:13px;padding:18px 20px;border:1.5px solid var(--border)}
+.cs-approach-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:8px}
+.cs-approach-text{font-size:.85rem;color:var(--ink2);line-height:1.6;font-weight:300}
+
+@media(max-width:600px){
+  .cs-card-grid{grid-template-columns:1fr}
+  .cs-approach-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Print Design</span>
+        <span class="cs-tag">Business Cards</span>
+        <span class="cs-tag">Canva</span>
+        <span class="cs-tag">Illustrator</span>
+        <span class="cs-tag">85×55mm · 3.5×2in</span>
+      </div>
+      <h1 class="cs-hero-title rev">Business Card —<br><em>Design Collection</em></h1>
+      <p class="cs-hero-sub rev">A collection of business card designs for various clients and industries — each card a small but considered piece of brand communication, built to leave a lasting impression in a standard-sized format.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Graphic Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Type</div>
+          <div class="cs-meta-val">Print Design</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Tools</div>
+          <div class="cs-meta-val">Canva · Illustrator</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Format</div>
+          <div class="cs-meta-val pill">✦ 85×55mm · Print Ready</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER
+          Best option: a flat lay or mockup of multiple cards overlapping
+          Save as: assets/business-cards/cover.png · 1040 × 600px
+        -->
+        <img src="../assets/business-cards/cover.png" alt="Business Card Collection"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>💳</span><span>assets/business-cards/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">01 — Overview</div>
+    <h2 class="cs-section-title rev">Small format, <em>big first impression.</em></h2>
+    <div class="cs-body rev">
+      <p>A business card is often the first physical piece of brand communication someone receives. In 85×55mm — roughly the size of a credit card — it has to communicate who you are, what you do, and how to reach you, while feeling consistent with the brand it represents. There's no room for anything superfluous.</p>
+      <p>This collection brings together business card work across different industries and brand personalities — from clean and minimal professional cards through to more expressive designs for creative businesses. Each design was developed with both the client's brand and the card's practical function in mind: it needs to be readable, memorable, and print-perfectly at small scale.</p>
+    </div>
+  </div>
+
+  <!-- 02 THE DESIGNS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Designs</div>
+    <h2 class="cs-section-title rev">Cards across <em>industries and styles.</em></h2>
+    <div class="cs-body rev"><p>Each card below shows both front and back where available — the front for identity and impression, the back for contact details and any secondary brand element.</p></div>
+
+    <div class="cs-card-grid rev">
+
+      <!-- CARD 1 -->
+      <div class="cs-bc-card">
+        <!--
+          Save as: assets/business-cards/card-1.png
+          Show front + back side by side, or just front
+          Size: 1040 × 585px (2× card width landscape, showing both sides)
+          OR just front: 640 × 360px
+        -->
+        <img src="../assets/business-cards/card-1.png" alt="Business Card 1"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-bc-ph" style="display:none"><span>💳</span><span>Card 1<br>card-1.png</span></div>
+        <div class="cs-bc-info">
+          <div class="cs-bc-cat">Business Card</div>
+          <div class="cs-bc-name">NR Creative Solutions</div>
+          <div class="cs-bc-desc">Modern business card design created for a creative digital agency. Features bold geometric layouts, strong contrast, and professional branding elements designed to establish a memorable visual identity while maintaining clarity and professionalism.</div>
+          <div class="cs-bc-tags">
+            <span class="cs-bc-tag">Canva</span>
+            <span class="cs-bc-tag">85×55mm</span>
+            <span class="cs-bc-tag">Front &amp; Back</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="cs-bc-card">
+        <img src="../assets/business-cards/card-2.png" alt="Business Card 2"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-bc-ph" style="display:none"><span>💳</span><span>Card 2<br>card-2.png</span></div>
+        <div class="cs-bc-info">
+          <div class="cs-bc-cat">Business Card</div>
+          <div class="cs-bc-name">Aura Interior Design</div>
+          <div class="cs-bc-desc">Elegant business card design developed for an interior design studio. The design combines premium typography, a refined gold-and-navy color palette, and a minimalist layout to reflect sophistication, creativity, and modern luxury.</div>
+          <div class="cs-bc-tags">
+            <span class="cs-bc-tag">Illustrator</span>
+            <span class="cs-bc-tag">85×55mm</span>
+            <span class="cs-bc-tag">Front &amp; Back</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="cs-bc-card">
+        <img src="../assets/business-cards/card-3.png" alt="Business Card 3"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-bc-ph" style="display:none"><span>💳</span><span>Card 3<br>card-3.png</span></div>
+        <div class="cs-bc-info">
+          <div class="cs-bc-cat">Business Card</div>
+          <div class="cs-bc-name">Peak Electrical Services</div>
+          <div class="cs-bc-desc">Professional business card designed for an electrical contractor. Features clean typography, structured information hierarchy, and modern branding elements that communicate reliability, technical expertise, and trust.</div>
+          <div class="cs-bc-tags">
+            <span class="cs-bc-tag">Illustrator</span>
+            <span class="cs-bc-tag">85×55mm</span>
+            <span class="cs-bc-tag">Front &amp; Back</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="cs-bc-card">
+        <img src="../assets/business-cards/card-4.png" alt="Business Card 4"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-bc-ph" style="display:none"><span>💳</span><span>Card 4<br>card-4.png</span></div>
+        <div class="cs-bc-info">
+          <div class="cs-bc-cat">Business Card</div>
+          <div class="cs-bc-name">Coastal Café</div>
+          <div class="cs-bc-desc">Warm and inviting business card created for a coastal-inspired café brand. Uses soft neutral tones, elegant typography, and a custom logo to reflect a relaxed atmosphere while maintaining a professional and memorable identity.</div>
+          <div class="cs-bc-tags">
+            <span class="cs-bc-tag">Canva</span>
+            <span class="cs-bc-tag">85×55mm</span>
+            <span class="cs-bc-tag">Front &amp; Back</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="cs-bc-card">
+        <img src="../assets/business-cards/card-5.png" alt="Business Card 5"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-bc-ph" style="display:none"><span>💳</span><span>Card 5<br>card-5.png</span></div>
+        <div class="cs-bc-info">
+          <div class="cs-bc-cat">Business Card</div>
+          <div class="cs-bc-name">FitZone Personal Training</div>
+          <div class="cs-bc-desc">Bold business card design developed for a personal training and fitness brand. Incorporates strong visual contrast, energetic branding, and a modern layout to represent motivation, strength, and performance.</div>
+          <div class="cs-bc-tags">
+            <span class="cs-bc-tag">Canva</span>
+            <span class="cs-bc-tag">85×55mm</span>
+            <span class="cs-bc-tag">Front &amp; Back</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="cs-bc-card">
+        <img src="../assets/business-cards/card-6.png" alt="Business Card 6"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-bc-ph" style="display:none"><span>💳</span><span>Card 6<br>card-6.png</span></div>
+        <div class="cs-bc-info">
+          <div class="cs-bc-cat">Business Card</div>
+          <div class="cs-bc-name">Blue Horizon Wealth</div>
+          <div class="cs-bc-desc">Corporate business card designed for a financial advisory firm. The clean layout, professional typography, and sophisticated blue color palette help communicate trust, stability, and long-term financial planning expertise.</div>
+          <div class="cs-bc-tags">
+            <span class="cs-bc-tag">Illustrator</span>
+            <span class="cs-bc-tag">85×55mm</span>
+            <span class="cs-bc-tag">Front &amp; Back</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+   </div>
+
+  <!-- 03 DESIGN APPROACH -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Design Approach</div>
+    <h2 class="cs-section-title rev">What goes into a <em>great business card.</em></h2>
+    <div class="cs-body rev"><p>The physical constraints of a business card force design discipline — every element must earn its place in 85×55mm.</p></div>
+    <div class="cs-approach-grid rev">
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Hierarchy in small space</div>
+        <div class="cs-approach-text">Name and role are always the largest elements. Contact details follow at a clearly smaller scale. The logo anchors the design without competing with the name.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Front &amp; Back</div>
+        <div class="cs-approach-text">The front makes the impression — bold, on-brand, memorable. The back carries the practical details — phone, email, website, QR code — so the front stays clean.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Typography at scale</div>
+        <div class="cs-approach-text">Body text on business cards prints at 7–9pt. Font choices that look fine at 12pt can become unreadable at 7pt. Every typeface is tested at final print size before delivery.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Brand consistency</div>
+        <div class="cs-approach-text">Each card uses the client's brand colours, fonts, and logo treatment — the card feels like it belongs to the same family as their website, letterhead, and other materials.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SPECS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Specifications</div>
+    <h2 class="cs-section-title rev">Ready for <em>the print shop.</em></h2>
+    <div style="background:var(--cream2);border-radius:14px;overflow:hidden;border:1.5px solid var(--border);margin-top:20px" class="rev">
+      <table class="cs-spec-table">
+        <tr><td>Standard Size</td><td>85 × 55mm (International) · 3.5 × 2in (US)</td></tr>
+        <tr><td>Orientation</td><td>Landscape (standard) · Portrait on request</td></tr>
+        <tr><td>Colour Mode</td><td>CMYK — print-ready</td></tr>
+        <tr><td>Resolution</td><td>300 DPI minimum</td></tr>
+        <tr><td>Bleed</td><td>3mm bleed on all edges</td></tr>
+        <tr><td>Safe Zone</td><td>3mm inset from trim edge for all text</td></tr>
+        <tr><td>File Formats</td><td>PDF (print) · PNG (digital preview)</td></tr>
+        <tr><td>Tools</td><td>Canva · Adobe Illustrator</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 05 TOOLS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Tools</div>
+    <h2 class="cs-section-title rev">Designed with <em>precision.</em></h2>
+    <div class="cs-body rev"><p>Canva for quick turnaround and client-editable templates. Adobe Illustrator for complex, vector-precise designs that need to scale perfectly and go straight to professional print.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Canva</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">✏️</div><span class="cs-tech-name">Illustrator</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📐</div><span class="cs-tech-name">Vector</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🖨️</div><span class="cs-tech-name">Print Ready</span></div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Event Flyers &amp; Promotional Posters</div>
+    </div>
+    <a href="flyer_case_study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

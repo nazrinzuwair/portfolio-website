@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NR Property Management — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* ── Screen containers ── */
+.cs-screen{
+  flex-shrink:0;
+  width:180px;
+  border-radius:16px;
+  overflow:hidden;
+  border:1.5px solid var(--border);
+  box-shadow:0 4px 20px rgba(0,0,0,.12);
+  background:var(--cream2);
+}
+.cs-screen img{width:100%;display:block;border-radius:16px}
+.cs-screen-ph{
+  width:180px;
+  aspect-ratio:9/19.5;
+  border-radius:16px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;
+  color:var(--ink3);font-size:.72rem;
+  flex-shrink:0;text-align:center;padding:12px;
+}
+.cs-screen-ph span:first-child{font-size:1.8rem}
+
+/* Full-width images */
+.cs-full-img{
+  width:100%;
+  border-radius:14px;
+  border:1px solid var(--border);
+  display:block;
+  margin-top:28px;
+  box-shadow:0 4px 24px rgba(124,58,237,.08);
+}
+.cs-full-ph{
+  width:100%;
+  aspect-ratio:16/8;
+  border-radius:14px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+  color:var(--ink3);font-size:.8rem;
+  margin-top:28px;text-align:center;padding:32px;
+}
+.cs-full-ph span:first-child{font-size:2rem}
+
+/* 2-col image grid */
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{
+  aspect-ratio:16/8;
+  border-radius:14px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;
+  color:var(--ink3);font-size:.75rem;text-align:center;padding:16px;
+}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+/* Brand swag 3-col grid */
+.cs-swag-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:28px;
+}
+.cs-swag-grid img{
+  width:100%;border-radius:12px;
+  border:1px solid var(--border);
+  box-shadow:0 4px 16px rgba(0,0,0,.08);
+}
+.cs-swag-ph{
+  aspect-ratio:4/3;
+  border-radius:12px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:5px;
+  color:var(--ink3);font-size:.68rem;text-align:center;padding:10px;
+}
+.cs-swag-ph span:first-child{font-size:1.5rem}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* User role cards */
+.cs-role-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs-role-card{background:var(--cream2);border-radius:16px;padding:22px 24px;border:1.5px solid var(--border)}
+.cs-role-icon{font-size:2rem;margin-bottom:10px}
+.cs-role-title{font-size:.95rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cs-role-text{font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300}
+
+@media(max-width:600px){
+  .cs-img-2up,.cs-role-grid{grid-template-columns:1fr}
+  .cs-swag-grid{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">FlutterFlow</span>
+        <span class="cs-tag">Firebase</span>
+        <span class="cs-tag">Figma</span>
+        <span class="cs-tag">Web &amp; Mobile App</span>
+        <span class="cs-tag">Capstone · 2025</span>
+      </div>
+      <h1 class="cs-hero-title rev">NR Property —<br><em>Maintenance Platform</em></h1>
+      <p class="cs-hero-sub rev">A cross-platform maintenance request management app built for tenants and property managers — replacing slow email chains and paper forms with a real-time digital workflow.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Designer &amp; Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Context</div>
+          <div class="cs-meta-val">Capstone · NIC 2025</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-val">Web · iOS · Android</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Status</div>
+          <div class="cs-meta-val pill">✦ Live</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER IMAGE
+          Save as: assets/nr-property/cover.png
+          Source: https://learndigital.dev/wp-content/uploads/2025/04/nazrin_zuwair_homepage.jpg
+          Size: 1040 × 600px
+        -->
+        <img src="../assets/NR Property Management.png" alt="NR Property Management"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🏠</span><span>assets/nr-property/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>NR Property Management?</em></h2>
+        <div class="cs-body rev">
+          <p>NR Property Management is a web and mobile application designed to optimise the process of managing and tracking maintenance requests. The app allows tenants to easily submit maintenance requests and upload photos, while administrators can accept, update, and manage each request in real time. Both parties receive instant notifications and can monitor progress throughout the process, ensuring greater transparency and communication.</p>
+          <p>This project was my capstone for the Post-Graduate Diploma in Digital Design & Development at North Island College (NIC), 2025. The brief was to design and build a complete, production-ready digital product from concept through to deployment — covering branding, UX/UI design, full-stack development, and brand collateral.</p>
+          <p>Traditional maintenance management still relies on email threads, phone calls, and paper forms — systems that are slow, error-prone, and nearly impossible to track at scale. NR Property Management replaces all of that with a clean, real-time digital workflow that benefits both tenants and property managers.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Context</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Capstone · North Island College BC · 2025</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Industry</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Property Tech · Maintenance Management</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Deliverables</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Branding · Moodboard · UI Design · App Development · Brand Swag</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Live App</div><a href="https://n-r-property-management.flutterflow.app/welcomeScreen" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">View Live App ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PROBLEM & SOLUTION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Challenge</div>
+    <h2 class="cs-section-title rev">Problem &amp; <em>Solution.</em></h2>
+    <div class="cs-two-col">
+      <div class="cs-box problem rev">
+        <span class="cs-box-icon">⚠️</span>
+        <div class="cs-box-title">The Problem</div>
+        <div class="cs-box-text">Traditional maintenance management systems — emails, phone calls, and paper forms — are slow, error-prone, and nearly impossible to track. Tenants have no visibility into whether their request was received or progressed, while admins struggle to organise and prioritise incoming work across multiple properties without a centralised system.</div>
+      </div>
+      <div class="cs-box rev">
+        <span class="cs-box-icon">✅</span>
+        <div class="cs-box-title">The Solution</div>
+        <div class="cs-box-text">NR Property Management provides a real-time digital platform where tenants submit requests with photos, track progress live, and receive instant updates — while admins see all requests in one dashboard, update statuses, and communicate directly with tenants. The entire workflow becomes faster, more organised, and fully transparent.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 TARGET AUDIENCE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Target Audience</div>
+    <h2 class="cs-section-title rev">Designed for <em>two user groups.</em></h2>
+    <div class="cs-body rev">
+      <p>The first step was identifying who would actually use this app. Two distinct groups emerged with fundamentally different needs — and both needed to be served well for the product to work.</p>
+    </div>
+    <div class="cs-role-grid rev">
+      <div class="cs-role-card">
+        <div class="cs-role-icon">🏠</div>
+        <div class="cs-role-title">Tenants</div>
+        <div class="cs-role-text">Homeowners or renters who require maintenance services. They need a simple, stress-free way to report problems, attach photos, and track whether their request is being handled — without chasing anyone by phone or email.</div>
+      </div>
+      <div class="cs-role-card">
+        <div class="cs-role-icon">🔧</div>
+        <div class="cs-role-title">Admins</div>
+        <div class="cs-role-text">Property managers or service providers responsible for overseeing maintenance. They need a central dashboard to see all incoming requests, prioritise work, update statuses, and keep tenants informed — all without drowning in inbound messages.</div>
+      </div>
+    </div>
+
+    
+  </div>
+
+  <!-- 04 USER NEEDS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — User Needs</div>
+    <h2 class="cs-section-title rev">What each user <em>actually needed.</em></h2>
+    <div class="cs-body rev">
+      <p>Once the two audiences were clear, I defined their specific functional requirements before designing a single screen. This ensured every design decision was grounded in a real need rather than assumption.</p>
+    </div>
+    <div style="margin-top:24px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Tenant Requirements</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Simple, intuitive interface to submit work requests in minutes</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Ability to upload photos directly from their phone</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Real-time progress tracking — know exactly what stage their request is at</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Instant notifications when status changes</span></div>
+      </div>
+    </div>
+    <div style="margin-top:16px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Admin Requirements</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Central dashboard to view and manage all incoming requests across properties</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Ability to update statuses (pending, in-progress, completed) in real time</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Direct communication channel with tenants through the app</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Automatic notifications sent to tenants when requests are updated</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 MOODBOARD & VISUAL DIRECTION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Moodboard &amp; Visual Direction</div>
+    <h2 class="cs-section-title rev">Defining the <em>visual language.</em></h2>
+    <div class="cs-body rev">
+      <p>Before touching Figma screens, I created a moodboard to establish the visual direction for NR Property Management. The goal was a design that conveyed reliability, professionalism, and ease of use — qualities a tenant or property manager needs to feel when trusting an app with something as important as their home.</p>
+      <p>The colour scheme focused on calming blues and grays — colours that communicate trust, authority, and clarity without being cold or corporate. Typography was chosen for its readability and modern feel, ensuring neither tenants nor admins would struggle to navigate. Icons and interface elements were kept simple and purposeful, guiding users without overwhelming them.</p>
+    </div>
+
+    <!--
+      MOODBOARD IMAGE
+      Save as: assets/nr-property/moodboard.png
+      Source: nazrin_zuwair_moodboard.jpg
+      Size: 1040 × 546px
+    -->
+    <img src="../assets/nr-property/moodboard.png" alt="Visual Moodboard" class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('moodboard-ph').style.display='flex'">
+    <div id="moodboard-ph" class="cs-full-ph rev" style="display:none">
+      <span>🎨</span>
+      <span>Moodboard</span>
+      <span style="font-size:.7rem;opacity:.7">assets/nr-property/moodboard.png · 1040 × 546px</span>
+    </div>
+    <div class="cs-img-caption rev">Visual moodboard — blues, grays, clean lines, and purposeful iconography</div>
+  </div>
+
+  <!-- 06 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Built with the <em>right tools.</em></h2>
+    <div class="cs-body rev">
+      <p>The stack was chosen deliberately to balance development speed, cross-platform reach, and real-time capability — three things this type of app demands.</p>
+    </div>
+
+    
+
+    <div class="cs-tech-grid rev" style="margin-top:28px">
+      <div class="cs-tech"><div style="font-size:1.3rem">⚡</div><span class="cs-tech-name">FlutterFlow</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔥</div><span class="cs-tech-name">Firebase</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Figma</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔐</div><span class="cs-tech-name">Firebase Auth</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🗄️</div><span class="cs-tech-name">Firestore DB</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📡</div><span class="cs-tech-name">Realtime Updates</span></div>
+    </div>
+
+    <div style="margin-top:28px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div>
+          <div style="font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:4px">FlutterFlow</div>
+          <div style="font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300">Enabled me to design the user interface and manage app workflows efficiently, significantly speeding up development. FlutterFlow's cross-platform support meant the same codebase works seamlessly across web, iOS, and Android — no separate builds needed.</div>
+        </div>
+        <div>
+          <div style="font-size:.8rem;font-weight:700;color:var(--ink);margin-bottom:4px">Firebase</div>
+          <div style="font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300">Handled user authentication, data storage with Firestore, and real-time updates. The real-time capability was crucial — when an admin updates a request status, the tenant sees it immediately without refreshing. Firebase made this instant, bi-directional communication straightforward to implement.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 KEY FEATURES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Key Features</div>
+    <h2 class="cs-section-title rev">What the app <em>does.</em></h2>
+    <div class="cs-features">
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📝</div>
+        <div>
+          <div class="cs-feature-title">Submit Maintenance Requests</div>
+          <div class="cs-feature-text">Tenants fill out a simple form, upload photos directly from their device, and submit in minutes — no emails, no calls, no paperwork.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📊</div>
+        <div>
+          <div class="cs-feature-title">Admin Request Dashboard</div>
+          <div class="cs-feature-text">Admins see every incoming request in one central view — sortable by status, date, or property — making prioritisation and workload management straightforward.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">🔄</div>
+        <div>
+          <div class="cs-feature-title">Real-Time Status Updates</div>
+          <div class="cs-feature-text">Admins update request statuses (pending → in-progress → completed) and tenants see changes instantly — no chasing, no uncertainty.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">🔔</div>
+        <div>
+          <div class="cs-feature-title">Instant Notifications</div>
+          <div class="cs-feature-text">Both tenants and admins receive push notifications when a request status changes — keeping all parties informed without manual follow-up.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📸</div>
+        <div>
+          <div class="cs-feature-title">Photo Uploads</div>
+          <div class="cs-feature-text">Tenants attach photos to requests, stored securely via Firebase Storage — giving admins the visual context they need to assess and plan the repair.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">🔐</div>
+        <div>
+          <div class="cs-feature-title">Role-Based Access</div>
+          <div class="cs-feature-text">Firebase Authentication handles separate login flows for tenants and admins — each sees only what they need, keeping the experience focused and secure.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 HOMEPAGE / APP SCREENS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — App Screens</div>
+    <h2 class="cs-section-title rev">The finished <em>product.</em></h2>
+    <div class="cs-body rev">
+      <p>The final UI balances clean professionalism for the admin side with a welcoming, easy-to-navigate experience for tenants. Blue and gray tones keep things trustworthy and clear, while generous spacing and simple iconography reduce cognitive load for users who may be stressed about a maintenance issue.</p>
+    </div>
+
+    <!--
+      HOMEPAGE / MAIN APP SCREEN
+      Save as: assets/nr-property/homepage.png
+      Source: nazrin_zuwair_homepage.jpg
+      Size: 1040 × 546px
+    -->
+    <img src="../assets/nr-property/homepage.png" alt="NR Property Management App" class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('homepage-ph').style.display='flex'">
+    <div id="homepage-ph" class="cs-full-ph rev" style="display:none">
+      <span>🖥️</span>
+      <span>App homepage / welcome screen</span>
+      <span style="font-size:.7rem;opacity:.7">assets/nr-property/homepage.png · 1040 × 546px</span>
+    </div>
+    <div class="cs-img-caption rev">Welcome screen — the first thing tenants and admins see when they open the app</div>
+
+    <!-- Tenant screens again in final design section -->
+    <div class="cs-img-2up rev" style="margin-top:16px">
+      <div>
+        <img src="../assets/nr-property/tenant-login.png" alt="Tenant Login"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>📱</span><span>Tenant Login<br>tenant-login.png</span></div>'">
+        <div class="cs-img-caption">Tenant login</div>
+      </div>
+      <div>
+        <img src="../assets/nr-property/tenant-dashboard.png" alt="Tenant Dashboard"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>📱</span><span>Tenant Dashboard<br>tenant-dashboard.png</span></div>'">
+        <div class="cs-img-caption">Tenant dashboard &amp; request tracking</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 BRAND SWAG -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Brand Swag</div>
+    <h2 class="cs-section-title rev">Beyond the screen — <em>brand collateral.</em></h2>
+    <div class="cs-body rev">
+      <p>As part of the capstone deliverables, I designed physical brand collateral to bring NR Property Management into the real world. Extending a digital brand into print and product design reinforces identity consistency and demonstrates how a brand lives beyond the app itself.</p>
+      <p>Deliverables included a crew t-shirt, a custom packaging box, a branded tote bag, and a branded water bottle — all using the app's blue-and-gray palette and clean typographic system.</p>
+    </div>
+
+    <!--
+      BRAND SWAG IMAGES (3-col grid)
+      Save as: assets/nr-property/swag-packaging.png / swag-tshirt.png / swag-bag.png / swag-bottle.png
+      Sources: nazrin_zuwair_packaging_design.jpg / tshirt.jpg / bag.jpg / bottle_design.jpg
+      Size: 1040 × 546px each (or crop to 4:3 for grid display)
+    -->
+    <div class="cs-swag-grid rev">
+      <div>
+        <img src="../assets/nr-property/swag-packaging.png" alt="Packaging Design"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-swag-ph\'><span>📦</span><span>Packaging<br>swag-packaging.png</span></div>'">
+        <div class="cs-img-caption">Custom note box packaging</div>
+      </div>
+      <div>
+        <img src="../assets/nr-property/swag-tshirt.png" alt="T-Shirt Design"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-swag-ph\'><span>👕</span><span>T-Shirt<br>swag-tshirt.png</span></div>'">
+        <div class="cs-img-caption">Crew t-shirt design</div>
+      </div>
+      <div>
+        <img src="../assets/nr-property/swag-bottle.png" alt="Water Bottle"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-swag-ph\'><span>🛍️</span><span>Tote Bag<br>swag-bag.png</span></div>'">
+        <div class="cs-img-caption">Branded tote bag</div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- 10 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Outcomes</div>
+    <h2 class="cs-section-title rev">What was <em>delivered.</em></h2>
+    <div class="cs-body rev"><p>NR Property Management was completed as a fully deployable product — live and accessible to real users — along with a complete visual identity and physical brand collateral.</p></div>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Live</span>
+        <span class="cs-outcome-label">Deployed cross-platform app</span>
+        <span class="cs-outcome-note">Web, iOS &amp; Android via FlutterFlow</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">2</span>
+        <span class="cs-outcome-label">Distinct user roles designed</span>
+        <span class="cs-outcome-note">Tenant + Admin — separate flows</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Full</span>
+        <span class="cs-outcome-label">Brand identity + swag</span>
+        <span class="cs-outcome-note">Packaging, t-shirt, bag, bottle</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">11 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>Design for two very different users simultaneously.</strong> Building one app that serves both a stressed tenant and a busy admin requires discipline — features that help one group can confuse the other. Role-based design thinking was essential throughout the entire process.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>Real-time capability changes how you design.</strong> Once I knew Firebase would handle live updates, the entire interaction model shifted — I could design flows that respond immediately rather than asking users to refresh or wait for emails. Building with the backend in mind from the start produced a far better UI.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>A capstone is a full product, not just a UI.</strong> Designing and producing physical brand swag alongside the app pushed me to think about brand consistency across every surface — digital and physical. That wider perspective made the app's visual identity stronger and more considered.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Flavor Haven — Restaurant Branding</div>
+    </div>
+    <a href="case-study-flavor-haven.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+<script src="../script.js"></script>
+</body>
+
+</html>

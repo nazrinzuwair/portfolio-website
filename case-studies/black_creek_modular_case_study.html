@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Creek Modular — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* ── Full-width images ── */
+.cs-full-img{
+  width:100%;
+  border-radius:14px;
+  border:1px solid var(--border);
+  display:block;
+  margin-top:28px;
+  box-shadow:0 4px 24px rgba(124,58,237,.08);
+}
+.cs-full-ph{
+  width:100%;
+  aspect-ratio:16/8;
+  border-radius:14px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:8px;
+  color:var(--ink3);font-size:.8rem;
+  margin-top:28px;text-align:center;padding:32px;
+}
+.cs-full-ph span:first-child{font-size:2rem}
+
+/* ── 2-col image grid ── */
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{
+  aspect-ratio:16/9;
+  border-radius:14px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:6px;
+  color:var(--ink3);font-size:.75rem;text-align:center;padding:16px;
+}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+/* ── 3-col page grid ── */
+.cs-page-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:28px;
+}
+.cs-page-grid img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.cs-page-grid-ph{
+  aspect-ratio:4/3;
+  border-radius:12px;
+  background:var(--cream2);
+  border:1.5px dashed var(--border);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;gap:5px;
+  color:var(--ink3);font-size:.65rem;text-align:center;padding:10px;
+}
+.cs-page-grid-ph span:first-child{font-size:1.5rem}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* ── Site nav pill list ── */
+.cs-nav-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.cs-nav-pill{background:var(--cream2);border:1.5px solid var(--border);border-radius:20px;padding:5px 14px;font-size:.8rem;font-weight:600;color:var(--ink)}
+
+/* ── Feature benefit strip ── */
+.cs-benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.cs-benefit-card{background:var(--cream2);border-radius:14px;padding:18px 20px;border:1.5px solid var(--border)}
+.cs-benefit-icon{font-size:1.5rem;margin-bottom:8px}
+.cs-benefit-title{font-size:.85rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.cs-benefit-text{font-size:.8rem;color:var(--ink2);line-height:1.6;font-weight:300}
+
+@media(max-width:768px){
+  .cs-img-2up{grid-template-columns:1fr}
+  .cs-page-grid{grid-template-columns:repeat(2,1fr)}
+  .cs-benefit-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .cs-page-grid,.cs-benefit-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">WordPress</span>
+        <span class="cs-tag">Elementor</span>
+        <span class="cs-tag">Web Design</span>
+        <span class="cs-tag">Responsive</span>
+        <span class="cs-tag">Freelance · 2025–2026</span>
+      </div>
+      <h1 class="cs-hero-title rev">Black Creek Modular —<br><em>Responsive Website</em></h1>
+      <p class="cs-hero-sub rev">A complete WordPress website built from scratch for a Vancouver Island modular construction company — covering everything from branding direction and information architecture through to a fully live, SEO-optimised responsive site.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Web Designer &amp; Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Context</div>
+          <div class="cs-meta-val">Freelance Client Project</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-val">WordPress · Elementor</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Status</div>
+          <div class="cs-meta-val pill">✦ Live</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER IMAGE
+          Save as: assets/bcm_website/cover.png
+          Recommended: desktop browser mockup showing the homepage
+          Size: 1040 × 600px
+        -->
+        <img src="../assets/BCM_Website_coverpage.png" alt="Black Creek Modular Website"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🏔️</span><span>assets/bcm_website/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>Black Creek Modular?</em></h2>
+        <div class="cs-body rev">
+          <p>Black Creek Modular is a locally owned modular construction company based on Vancouver Island, BC. They specialise in delivering scalable, high-quality modular homes and buildings — from single residences to large-scale community developments including schools, healthcare facilities, and housing projects. Their work spans remote and hard-to-reach locations across British Columbia, with a strong commitment to sustainable, code-compliant construction.</p>
+          <p>The company came to me without a website and needing a proper digital presence to support business growth, quote inquiries, and awareness of their modular approach. The brief was to design and build a complete, professional WordPress website that communicated their expertise, showcased their product range, and made it easy for prospective clients to get in touch.</p>
+         </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Client</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Black Creek Modular · Vancouver Island BC</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Industry</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Modular Construction · Real Estate</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Deliverables</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Full Website · Content Structure · SEO · Responsive Design · Contact Forms</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Live Site</div><a href="https://blackcreekmodular.com" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">blackcreekmodular.com ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PROBLEM & SOLUTION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Challenge</div>
+    <h2 class="cs-section-title rev">Problem &amp; <em>Solution.</em></h2>
+    <div class="cs-two-col">
+      <div class="cs-box problem rev">
+        <span class="cs-box-icon">⚠️</span>
+        <div class="cs-box-title">The Problem</div>
+        <div class="cs-box-text">Black Creek Modular had no digital presence — no website, no way for prospective clients to learn about their product, understand modular construction, browse floor plans, or request a quote. In a market where credibility and clarity are everything, this was a significant barrier to growth. The company also needed to educate visitors on what modular building actually is, since many potential clients were unfamiliar with the process.</div>
+      </div>
+      <div class="cs-box rev">
+        <span class="cs-box-icon">✅</span>
+        <div class="cs-box-title">The Solution</div>
+        <div class="cs-box-text">A complete WordPress website built from scratch — structured to educate, build trust, and convert. The site explains modular construction clearly, showcases the company's technical advantages (GS Panel Wall Assembly), displays floor plan options, and makes it simple to request a quote. A clean, professional visual identity using dark tones and strong typography communicates quality and reliability from the first page load.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 SITEMAP & STRUCTURE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Site Structure</div>
+    <h2 class="cs-section-title rev">Planning the <em>information architecture.</em></h2>
+    <div class="cs-body rev">
+      <p>Before writing a line of code, I mapped out the full site structure. The goal was to organise content logically from the perspective of someone discovering modular construction for the first time — moving from "what is this?" through to "I want a quote."</p>
+    </div>
+    <div class="cs-nav-pills rev">
+      <span class="cs-nav-pill">🏠 Home</span>
+      <span class="cs-nav-pill">📋 Why Choose Modular</span>
+      <span class="cs-nav-pill">🧱 Advanced Panel Technology</span>
+      <span class="cs-nav-pill">📐 Modular Home Plans</span>
+      <span class="cs-nav-pill">🏢 Services</span>
+      <span class="cs-nav-pill">👥 Who We Are / Overview</span>
+      <span class="cs-nav-pill">❓ FAQs</span>
+      <span class="cs-nav-pill">📰 Blog</span>
+      <span class="cs-nav-pill">✉️ Contact Us</span>
+    </div>
+    <div style="margin-top:24px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:14px">Key structural decisions</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Education-first hierarchy</strong> — "Why Choose Modular" sits at the top of the nav, because most visitors need convincing before they browse plans or request quotes.</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Dedicated technology page</strong> — GS Panel Wall Assembly is a genuine differentiator. It deserved its own page rather than a footnote on another section.</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Quote form on every page</strong> — A persistent CTA and a detailed quote request form (home size, contact details, location, notes) reduces friction at every stage of the funnel.</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--p);font-weight:700;flex-shrink:0">→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Blog for SEO growth</strong> — A blog section was built in from the start to support long-term search visibility for modular construction queries in BC.</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 VISUAL DESIGN -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Visual Design</div>
+    <h2 class="cs-section-title rev">Building a <em>trustworthy brand presence.</em></h2>
+    <div class="cs-body rev">
+      <p>Black Creek Modular needed to look like a serious construction company — not a generic small business template. The visual direction drew from their existing logo: a bold, dark aesthetic with a stylised mountain silhouette in black and red. I extended this into a full site identity using a dark hero palette, strong typography, and clean whitespace throughout the content pages.</p>
+      <p>Colour-wise, the site uses near-black backgrounds for hero sections and CTAs (communicating strength and quality), with white and light-gray content areas to keep long-form information highly readable. Red is used as the accent for interactive elements, echoing the logo.</p>
+    </div>
+
+    <!--
+      HOMEPAGE SCREENSHOT
+      Save as: assets/bcm_website/homepage.png
+      Screenshot of the full homepage in browser
+      Size: 1040 × 600px
+    -->
+    <img src="../assets/BCM_Website_coverpage.png" alt="Black Creek Modular Homepage"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('hp-ph').style.display='flex'">
+    
+    <div class="cs-img-caption rev">Homepage — hero section with community-driven headline and modular home imagery</div>
+  </div>
+
+  <!-- 05 KEY PAGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Key Pages</div>
+    <h2 class="cs-section-title rev">Pages I <em>designed and built.</em></h2>
+    <div class="cs-body rev">
+      <p>Each page was designed and built individually in Elementor with consistent components and reusable sections. Below are the core pages that form the site's content backbone.</p>
+    </div>
+
+    <!--
+      PAGE SCREENSHOTS — 6 screenshots in a 3-col grid
+      Save to: assets/bcm_website/page-*.png
+      Screenshots: why-choose, panel-tech, home-plans, services, about, contact
+      Size: 640 × 480px each (crop to key section, not full scroll)
+    -->
+    <div class="cs-page-grid rev">
+      <div>
+        <img src="../assets/bcm_website/page-why-modular.png" alt="Why Choose Modular"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>📋</span><span>Why Choose Modular<br>page-why-modular.png</span></div>'">
+        <div class="cs-img-caption">Why Choose Modular</div>
+      </div>
+      <div>
+        <img src="../assets/bcm_website/page-panel-tech.png" alt="Advanced Panel Technology"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🧱</span><span>Advanced Panel Technology<br>page-panel-tech.png</span></div>'">
+        <div class="cs-img-caption">GS Panel Technology</div>
+      </div>
+      <div>
+        <img src="../assets/bcm_website/page-plans.png" alt="Modular Home Plans"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>📐</span><span>Home Plans<br>page-plans.png</span></div>'">
+        <div class="cs-img-caption">Modular Home Plans</div>
+      </div>
+      <div>
+        <img src="../assets/bcm_website/page-services.png" alt="Services"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🏢</span><span>Services<br>page-services.png</span></div>'">
+        <div class="cs-img-caption">Services</div>
+      </div>
+      <div>
+        <img src="../assets/bcm_website/page-about.png" alt="Who We Are"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>👥</span><span>Who We Are<br>page-about.png</span></div>'">
+        <div class="cs-img-caption">Who We Are</div>
+      </div>
+      <div>
+        <img src="../assets/bcm_website/blog.png" alt="Blogs"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>✉️</span><span>Blogs<br>page-blogs.png</span></div>'">
+        <div class="cs-img-caption">Blogs</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 HOMEPAGE SECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Homepage Sections</div>
+    <h2 class="cs-section-title rev">A homepage that <em>educates and converts.</em></h2>
+    <div class="cs-body rev">
+      <p>The homepage was designed as a complete journey — from first impression through to quote request. Each section was crafted to answer the next question a visitor would naturally have.</p>
+    </div>
+    <div style="margin-top:24px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Hero</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Community Driven, Built to Last, Future Focused" — bold headline with immediate CTA to Build With Us</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">What is Modular?</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Plain-language explainer with supporting imagery — locally owned, sustainable, quality-focused pillars</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Benefits</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">6-card benefit grid: Fire Resistant · Faster Delivery · Built In-House · Remote Access · Code Compliant · Energy Efficient</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Custom Design</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Floor plans, interior & exterior finishes, endless customisation — with curated interior imagery</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">GS Panel Tech</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">Technical panel diagram with bullet list: GPS insulation, steel studs, vapour control layer — links to full tech page</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">CTA Banner</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Your Custom Modular Home Awaits" — full-width dark section with Get A Quote button</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2-up homepage detail shots -->
+    <div class="cs-img-2up rev">
+      <div>
+        <img src="../assets/bcm_website/section-benefits.png" alt="Benefits Section"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>Benefits section<br>section-benefits.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Benefits of modular construction — 6-card grid</div>
+      </div>
+      <div>
+        <img src="../assets/bcm_website/section-panels.png" alt="GS Panel Section"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>GS Panel section<br>section-panels.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">GS Panel Wall Assembly — technical section</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 QUOTE FORM -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Quote Request Form</div>
+    <h2 class="cs-section-title rev">Turning visitors into <em>leads.</em></h2>
+    <div class="cs-body rev">
+      <p>One of the most important conversion elements on the site is the detailed quote request form. Rather than a generic contact form, this was built to capture the specific information Black Creek Modular needs to qualify and respond to enquiries efficiently — home size preference, full contact details, location, and any additional notes from the prospective client.</p>
+    </div>
+    <div style="margin-top:20px;background:var(--cream2);border-radius:16px;padding:22px 26px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Form Fields</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Home size selector (1–3 bed, duplex, other)</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Email address</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Phone number</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Full street address</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ City, Province, Postal Code</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Country selector</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Additional notes / message</div>
+        <div style="font-size:.85rem;color:var(--ink2);font-weight:300">✓ Privacy policy consent checkbox</div>
+      </div>
+    </div>
+
+    </div>
+
+  <!-- 08 RESPONSIVE DESIGN -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Responsive Design</div>
+    <h2 class="cs-section-title rev">Optimised for <em>every screen size.</em></h2>
+    <div class="cs-body rev">
+      <p>A large portion of construction-related website traffic comes from mobile — clients browsing on site, contractors checking details, or homeowners researching from their phone. Every page was tested and optimised across desktop, tablet, and mobile breakpoints in Elementor, ensuring the layout, typography, images, and navigation work flawlessly at any size.</p>
+    </div>
+
+    <!--
+      RESPONSIVE MOCKUP
+      Save as: assets/bcm_website/responsive.png
+      Mockup showing desktop + tablet + mobile side by side
+      Size: 1040 × 520px
+    -->
+    <img src="../assets/bcm_website/responsive.png" alt="Responsive Design Mockup"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('resp-ph').style.display='flex'">
+    <div id="resp-ph" class="cs-full-ph rev" style="display:none">
+      <span>📱</span>
+      <span>Responsive mockup — desktop / tablet / mobile</span>
+      <span style="font-size:.7rem;opacity:.7">assets/bcm_website/responsive.png · 1040 × 520px</span>
+    </div>
+    <div class="cs-img-caption rev">Responsive across desktop, tablet, and mobile viewports</div>
+  </div>
+
+  <!-- 09 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Built with the <em>right tools.</em></h2>
+    <div class="cs-body rev"><p>WordPress with Elementor was the right choice for this client — it gives Black Creek Modular the ability to update content, add blog posts, and manage their floor plan listings independently, without needing a developer for every change.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🌐</div><span class="cs-tech-name">WordPress</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">⚡</div><span class="cs-tech-name">Elementor</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Custom CSS</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📋</div><span class="cs-tech-name">WP Forms</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔍</div><span class="cs-tech-name">Yoast SEO</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">☁️</div><span class="cs-tech-name">cPanel Hosting</span></div>
+    </div>
+  </div>
+
+  <!-- 10 KEY FEATURES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Key Features</div>
+    <h2 class="cs-section-title rev">What the site <em>does.</em></h2>
+    <div class="cs-features">
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📐</div>
+        <div>
+          <div class="cs-feature-title">Modular Home Plans</div>
+          <div class="cs-feature-text">A dedicated page presenting available floor plan configurations — 1, 2, and 3-bedroom options, duplexes, and custom builds — giving prospective buyers a clear starting point.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">✉️</div>
+        <div>
+          <div class="cs-feature-title">Detailed Quote Request Form</div>
+          <div class="cs-feature-text">A multi-field lead capture form collecting home size preference, full address, contact details, and project notes — so the team receives qualified, actionable enquiries.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">🔍</div>
+        <div>
+          <div class="cs-feature-title">SEO Optimisation</div>
+          <div class="cs-feature-text">All pages were optimised with Yoast SEO — meta titles, descriptions, heading structure, image alt text, and schema markup — to support organic search visibility for modular construction queries in BC.</div>
+        </div>
+      </div>
+      <div class="cs-feature rev">
+        <div class="cs-feature-icon">📰</div>
+        <div>
+          <div class="cs-feature-title">Blog</div>
+          <div class="cs-feature-text">A WordPress blog built in from the start, giving the client a platform for content marketing and long-term SEO growth around modular construction topics.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">11 — Outcomes</div>
+    <h2 class="cs-section-title rev">What was <em>delivered.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">9+</span>
+        <span class="cs-outcome-label">Pages designed and built</span>
+        <span class="cs-outcome-note">Home · Plans · Technology · Services · About · FAQs · Blog · Contact</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Live</span>
+        <span class="cs-outcome-label">Production website launched</span>
+        <span class="cs-outcome-note">blackcreekmodular.com · 2026</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">100%</span>
+        <span class="cs-outcome-label">Responsive across all devices</span>
+        <span class="cs-outcome-note">Desktop · Tablet · Mobile</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 12 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">12 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>Content strategy is as important as visual design.</strong> A lot of this project was about deciding what to say and in what order — before touching a single design tool. Getting the information architecture right meant the visual design almost organised itself.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>Building for client independence matters.</strong> Choosing WordPress and Elementor wasn't just the easiest path — it was the right one for this client. Handing over a site the client can actually manage, update, and grow without needing me for every change is a better outcome than a technically impressive but unmaintainable build.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>Technical subject matter needs patient simplification.</strong> Modular construction involves genuine engineering complexity — GS panel assemblies, vapour barriers, thermal performance. Translating that into plain language that a homeowner can quickly understand, without losing credibility, required multiple rounds of writing and rewriting.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">NR Creativo Solutions</div>
+    </div>
+    <a href="nr-creativo-case-study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

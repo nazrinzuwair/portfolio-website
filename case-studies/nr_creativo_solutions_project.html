@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NR Creativo Solutions — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* full-width images */
+.cs-full-img{width:100%;border-radius:14px;border:1px solid var(--border);display:block;margin-top:28px;box-shadow:0 4px 24px rgba(124,58,237,.08)}
+.cs-full-ph{width:100%;aspect-ratio:16/8;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;margin-top:28px;text-align:center;padding:32px}
+.cs-full-ph span:first-child{font-size:2rem}
+
+/* before/after 2-col */
+.cs-ba{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:16px;overflow:hidden;border:1.5px solid var(--border);margin-top:28px}
+.cs-ba-panel{position:relative}
+.cs-ba-panel img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;object-position:top}
+.cs-ba-panel-ph{width:100%;aspect-ratio:3/4;background:var(--cream2);border:none;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-ba-panel-ph span:first-child{font-size:1.8rem}
+.cs-ba-label{position:absolute;top:12px;left:12px;background:rgba(0,0,0,.7);color:white;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:8px;letter-spacing:.08em;text-transform:uppercase}
+.cs-ba-label.after{background:var(--p)}
+
+/* 2-col image grid */
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{aspect-ratio:16/9;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+/* 3-col page grid */
+.cs-page-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.cs-page-grid img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.cs-page-grid-ph{aspect-ratio:4/3;border-radius:12px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink3);font-size:.65rem;text-align:center;padding:10px}
+.cs-page-grid-ph span:first-child{font-size:1.5rem}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* problem list */
+.cs-problem-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.cs-problem-item{display:flex;gap:12px;align-items:flex-start;padding:14px 18px;background:var(--cream2);border-radius:12px;border:1.5px solid var(--border)}
+.cs-problem-icon{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+.cs-problem-text{font-size:.875rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.cs-problem-text strong{color:var(--ink)}
+
+/* what changed improvement list */
+.cs-improvement-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.cs-improvement-item{display:flex;gap:12px;align-items:flex-start}
+.cs-improvement-item span:first-child{color:var(--p);font-weight:700;flex-shrink:0;font-size:1rem}
+
+@media(max-width:768px){
+  .cs-ba,.cs-img-2up{grid-template-columns:1fr}
+  .cs-page-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .cs-page-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">WordPress</span>
+        <span class="cs-tag">Elementor</span>
+        <span class="cs-tag">Web Redesign</span>
+        <span class="cs-tag">HTML/CSS → WordPress</span>
+        <span class="cs-tag">Freelance · 2025</span>
+      </div>
+      <h1 class="cs-hero-title rev">NR Creativo —<br><em>Website Redesign</em></h1>
+      <p class="cs-hero-sub rev">A full website redesign for an IT solutions company — migrating from a custom-coded HTML/CSS site to a modern WordPress/Elementor build with a cleaner visual identity, restructured services, and a stronger professional presence.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Web Designer &amp; Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Context</div>
+          <div class="cs-meta-val">Freelance · 2025</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Platform</div>
+          <div class="cs-meta-val">HTML/CSS → WordPress</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Status</div>
+          <div class="cs-meta-val pill">✦ Live</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER
+          Save as: assets/nrcreativo/cover.png
+          Browser mockup of new homepage
+          Size: 1040 × 600px
+        -->
+        <img src="../assets/NR-Creativo-Solutions.png" alt="NR Creativo Solutions Website"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>💻</span><span>assets/nrcreativo/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>NR Creativo Solutions?</em></h2>
+        <div class="cs-body rev">
+          <p>NR Creativo Solutions Ltd is an IT solutions company founded in Sri Lanka, serving businesses across Vancouver Island. Their services span managed IT, web development, cybersecurity, cloud computing, and network support — a comprehensive offering for small and mid-sized businesses looking to grow their digital presence and protect their operations.</p>
+          <p>The company came to me with an existing website built in custom HTML and CSS. While functional, the old site had limitations — it required a developer for every content update, the visual design felt dated compared to competitors, and the service structure was harder to navigate than it needed to be. The brief was to redesign the site entirely, migrate to WordPress with Elementor so the client could manage their own content, and create a design that better communicated the company's expertise and professionalism.</p>
+          <p>This was a freelance project completed alongside my other work. I handled everything: visual design direction, WordPress setup, Elementor page building, content restructuring, SEO configuration, responsive optimisation, and launch.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Client</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">NR Creativo Solutions Ltd · </div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Type</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">Full Redesign · HTML/CSS → WordPress/Elementor</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Industry</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">IT Solutions · Web Development · Cybersecurity</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Live Site</div><a href="https://nrcreativosolutions.com" target="_blank" style="font-size:.875rem;color:var(--p);font-weight:700;text-decoration:none">nrcreativosolutions.com ↗</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 OLD SITE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Old Site</div>
+    <h2 class="cs-section-title rev">What we were <em>starting from.</em></h2>
+    <div class="cs-body rev">
+      <p>The original site was hand-coded in HTML and CSS with a purple and gold visual theme. It covered the company's services, approach, and FAQs — but had grown to feel cluttered and hard to maintain. Every content update required going into the code directly, and the layout was becoming outdated compared to modern IT company websites.</p>
+    </div>
+
+    <!-- OLD SITE screenshots from uploaded image -->
+    <div class="cs-ba rev">
+      <div class="cs-ba-panel">
+        <!--
+          OLD SITE — left panel (homepage)
+          Save as: assets/nrcreativo/old-homepage.png
+          Crop from uploaded screenshot: left column
+          Size: 640 × 860px
+        -->
+        <img src="../assets/nrcreativo/old-homepage.png" alt="Old Homepage"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>🕰️</span><span>Old homepage<br>old-homepage.png</span></div><div class=\'cs-ba-label\'>Before — HTML/CSS</div>'">
+        <div class="cs-ba-label">Before — HTML/CSS</div>
+      </div>
+      <div class="cs-ba-panel">
+        <!--
+          OLD SITE — right panel (services/projects view)
+          Save as: assets/nrcreativo/old-services.png
+          Crop from uploaded screenshot: right column
+          Size: 640 × 860px
+        -->
+        <img src="../assets/nrcreativo/old-about.png" alt="Old About View"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>🕰️</span><span>Old about view<br>old-about.png</span></div><div class=\'cs-ba-label\'>Before — HTML/CSS</div>'">
+        <div class="cs-ba-label">Before — HTML/CSS</div>
+      </div>
+    </div>
+    <div class="cs-img-caption rev">Original HTML/CSS website — before the redesign</div>
+
+    <!-- Problems -->
+    <div class="cs-problem-list rev">
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>Hard-coded — no CMS</strong> — Every text change, service update, or FAQ edit required directly editing HTML files. The client had no way to manage their own content independently.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>Visually dated</strong> — The purple and gold palette with dense icon grids looked busy and cluttered. It didn't communicate the clean, professional credibility that an IT solutions company needs to establish trust.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>Too many services crammed onto one page</strong> — The old homepage tried to list eight service icons at once, overwhelming visitors before they could understand what the company actually specialised in.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>Weak brand positioning</strong> — The company had expanded from its Sri Lanka roots to serve Vancouver Island businesses, but the old site didn't reflect that evolution or clearly communicate the company's geographic focus and growth story.</div>
+      </div>
+      <div class="cs-problem-item">
+        <div class="cs-problem-icon">⚠️</div>
+        <div class="cs-problem-text"><strong>No clear conversion path</strong> — The FAQ and CTA sections existed but weren't structured to guide visitors toward booking a consultation or making contact. The journey from landing to inquiry was unclear.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 NEW SITE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — The Redesign</div>
+    <h2 class="cs-section-title rev">The new <em>nrcreativosolutions.com</em></h2>
+    <div class="cs-body rev">
+      <p>The redesigned site is built on WordPress with Elementor — giving the client full control over their content through a visual editor, no coding required. The visual identity was completely refreshed: cleaner typography, a professional blue and dark palette replacing the busy purple/gold, and more whitespace throughout to let the content breathe.</p>
+      <p>Services were distilled from eight loosely defined options into three clear, focused categories: Managed IT Services, Web Solutions, and Cybersecurity Services. Each gets a proper description and its own visual treatment, making it immediately clear what the company offers and who it's for.</p>
+    </div>
+
+    <!--
+      NEW SITE — Homepage screenshot
+      Save as: assets/nrcreativo/new-homepage.png
+      Size: 1040 × 600px
+    -->
+    
+  </div>
+
+  <!-- 04 BEFORE vs AFTER -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Before &amp; After</div>
+    <h2 class="cs-section-title rev">Side by <em>side comparison.</em></h2>
+    <div class="cs-body rev"><p>The same company, the same services — completely different first impression.</p></div>
+
+    <div class="cs-ba rev">
+      <div class="cs-ba-panel">
+        <img src="../assets/nrcreativo/old-homepage.png" alt="Before"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>🕰️</span><span>Before<br>old-homepage.png</span></div><div class=\'cs-ba-label\'>Before</div>'">
+        <div class="cs-ba-label">Before — HTML/CSS</div>
+      </div>
+      <div class="cs-ba-panel">
+        <img src="../assets/nrcreativo/new-homepage.png" alt="After"
+          style="object-fit:cover;object-position:top;aspect-ratio:3/4"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-ba-panel-ph\'><span>✨</span><span>After<br>new-homepage.png</span></div><div class=\'cs-ba-label after\'>After</div>'">
+        <div class="cs-ba-label after">After — WordPress</div>
+      </div>
+    </div>
+    <div class="cs-img-caption rev">Before (HTML/CSS) vs After (WordPress/Elementor)</div>
+
+    <!-- What improved -->
+    <div style="margin-top:28px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:14px">Key Improvements</div>
+      <div class="cs-improvement-list">
+        <div class="cs-improvement-item"><span>→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Client-managed CMS</strong> — WordPress/Elementor means the client edits pages, updates services, and adds blog content without touching code</span></div>
+        <div class="cs-improvement-item"><span>→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">3 focused services</strong> vs 8 scattered icons — Managed IT · Web Solutions · Cybersecurity</span></div>
+        <div class="cs-improvement-item"><span>→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Cleaner visual identity</strong> — professional blue/dark palette, generous whitespace, modern typography replacing the busy purple/gold</span></div>
+        <div class="cs-improvement-item"><span>→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Company story section</strong> — "Founded in Sri Lanka, expanding across Vancouver Island" narrative added to build connection and trust</span></div>
+        <div class="cs-improvement-item"><span>→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Clear consultation CTA</strong> — "Book a Free Consultation" placed prominently at multiple points in the page journey</span></div>
+        <div class="cs-improvement-item"><span>→</span><span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300"><strong style="color:var(--ink)">Remote Support page</strong> — dedicated page added for existing clients to access remote support quickly</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 05 HOMEPAGE SECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Homepage Sections</div>
+    <h2 class="cs-section-title rev">A homepage that <em>builds trust and converts.</em></h2>
+    <div class="cs-body rev"><p>The new homepage was structured as a deliberate top-to-bottom journey — from establishing credibility through to booking a consultation.</p></div>
+    <div style="margin-top:24px;background:var(--cream2);border-radius:16px;padding:24px 28px" class="rev">
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Hero</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Elevate Your Business with Expert IT Solutions" — three benefit bullet points, dual CTA: Contact Us + Learn More</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Services</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">3-card grid: Managed IT Services · Web Solutions · Cybersecurity Services — each with a full description</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">About</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Growing Together with Innovation" — company story, Sri Lanka origins, Vancouver Island expansion, sustainability focus</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">Why Choose Us</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">4 trust pillars: Tailored Solutions · Proactive Support · Deep Expertise · Global Roots, Local Commitment</span>
+        </div>
+        <div style="display:flex;gap:12px;align-items:flex-start">
+          <span style="background:var(--p);color:white;border-radius:8px;padding:2px 10px;font-size:.7rem;font-weight:700;flex-shrink:0;margin-top:1px">CTA Banner</span>
+          <span style="font-size:.9rem;color:var(--ink2);line-height:1.6;font-weight:300">"Unlock Your Business Potential with a Free Consultation" — prominent Book A Consultation button</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section screenshots -->
+    <div class="cs-img-2up rev">
+      <div>
+        <img src="../assets/nrcreativo/section-services.png" alt="Services Section"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>Services section<br>section-services.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">3-card services section</div>
+      </div>
+      <div>
+        <img src="../assets/nrcreativo/section-why.png" alt="Why Choose Us"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>Why Choose Us section<br>section-why.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Why Choose Us — 4 trust pillars</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 06 PAGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Pages Built</div>
+    <h2 class="cs-section-title rev">Every page <em>designed and built.</em></h2>
+    <div class="cs-body rev"><p>Beyond the homepage, each inner page was designed individually with consistent components and a clear purpose — from detailed service information through to the contact and remote support flows.</p></div>
+    <!--
+      PAGE SCREENSHOTS — 4 pages
+      Save to: assets/nrcreativo/page-*.png
+      Size: 640 × 480px each
+    -->
+    <div class="cs-page-grid rev">
+      <div>
+        <img src="../assets/nrcreativo/page-web-solutions.png" alt="Web Solutions"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>🌐</span><span>Web Solutions<br>page-web-solutions.png</span></div>'">
+        <div class="cs-img-caption">Web Solutions</div>
+      </div>
+      <div>
+        <img src="../assets/nrcreativo/page-about.png" alt="About"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>👥</span><span>About<br>page-about.png</span></div>'">
+        <div class="cs-img-caption">About</div>
+      </div>
+      <div>
+        <img src="../assets/nrcreativo/page-contact.png" alt="Contact"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-page-grid-ph\'><span>✉️</span><span>Contact<br>page-contact.png</span></div>'">
+        <div class="cs-img-caption">Contact</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 RESPONSIVE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Responsive Design</div>
+    <h2 class="cs-section-title rev">Optimised for <em>every screen.</em></h2>
+    <div class="cs-body rev"><p>All pages were built with Elementor's responsive editor and tested across desktop, tablet, and mobile. The navigation collapses cleanly into a mobile menu, service cards stack vertically, and the hero section remains impactful at all sizes.</p></div>
+    <!--
+      RESPONSIVE MOCKUP
+      Save as: assets/nrcreativo/responsive.png
+      Desktop + tablet + mobile side by side
+      Size: 1040 × 520px
+    -->
+    <img src="../assets/nrcreativo/responsive.png" alt="Responsive"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('resp-ph').style.display='flex'">
+    <div id="resp-ph" class="cs-full-ph rev" style="display:none">
+      <span>📱</span><span>Responsive mockup</span>
+      <span style="font-size:.7rem;opacity:.7">assets/nrcreativo/responsive.png · 1040 × 520px</span>
+    </div>
+    <div class="cs-img-caption rev">Responsive across desktop, tablet, and mobile</div>
+  </div>
+
+  <!-- 08 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Tech Stack</div>
+    <h2 class="cs-section-title rev">From hand-coded <em>to client-managed.</em></h2>
+    <div class="cs-body rev"><p>Moving from custom HTML/CSS to WordPress with Elementor was the key strategic decision. The old codebase gave fine-grained control but made the client completely dependent on a developer. The new stack gives them a CMS they can actually use — and me a build environment that produces professional results quickly.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🌐</div><span class="cs-tech-name">WordPress</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">⚡</div><span class="cs-tech-name">Elementor</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Custom CSS</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📋</div><span class="cs-tech-name">WP Forms</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔍</div><span class="cs-tech-name">Yoast SEO</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🖥️</div><span class="cs-tech-name">ElementsKit</span></div>
+    </div>
+  </div>
+
+  <!-- 09 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Outcomes</div>
+    <h2 class="cs-section-title rev">What the redesign <em>delivered.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">5+</span>
+        <span class="cs-outcome-label">Pages redesigned and built</span>
+        <span class="cs-outcome-note">Home · Web Solutions · About · Contact · Remote Support</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">HTML → WP</span>
+        <span class="cs-outcome-label">Full platform migration</span>
+        <span class="cs-outcome-note">Client now self-manages content</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Live</span>
+        <span class="cs-outcome-label">Production site launched</span>
+        <span class="cs-outcome-note">nrcreativosolutions.com · 2025</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>Less is more for IT companies.</strong> The old site tried to show everything at once — eight service icons, dense text, busy visuals. Stripping it back to three clear services and giving each one space to breathe made the offering far easier to understand and trust.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>The migration decision shapes the entire project.</strong> Choosing WordPress over simply restyling the existing HTML/CSS was a bigger upfront investment, but it's the right long-term call. The client can now add blog posts, update their services, and manage their site without ever contacting a developer.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>The company story is underused by most IT firms.</strong> "Founded in Sri Lanka, now serving Vancouver Island" is a genuinely interesting narrative — it communicates global expertise combined with local commitment. Surfacing that story gave the redesigned site a personality that the original completely lacked.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Black Creek Industries — Website Redesign</div>
+    </div>
+    <a href="black_creek_industries_case_study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

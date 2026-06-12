@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breast Cancer Prediction ML Web App — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.cs-full-img{width:100%;border-radius:14px;border:1px solid var(--border);display:block;margin-top:28px;box-shadow:0 4px 24px rgba(124,58,237,.08)}
+.cs-full-ph{width:100%;aspect-ratio:16/8;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;margin-top:28px;text-align:center;padding:32px}
+.cs-full-ph span:first-child{font-size:2rem}
+
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{aspect-ratio:16/9;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+/* algorithm comparison table */
+.cs-algo-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:.85rem}
+.cs-algo-table th{padding:10px 14px;background:var(--p);color:white;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-align:left}
+.cs-algo-table th:first-child{border-radius:8px 0 0 0}
+.cs-algo-table th:last-child{border-radius:0 8px 0 0}
+.cs-algo-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink2);font-weight:300}
+.cs-algo-table tr:last-child td{border-bottom:none}
+.cs-algo-table tr.winner td{background:var(--cream2);font-weight:700;color:var(--ink)}
+.cs-algo-badge{display:inline-block;background:var(--p);color:white;border-radius:20px;padding:2px 8px;font-size:.65rem;font-weight:700;margin-left:6px}
+
+/* method cards */
+.cs-method-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px}
+.cs-method-card{background:var(--cream2);border-radius:16px;padding:22px 24px;border:1.5px solid var(--border)}
+.cs-method-num{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:8px}
+.cs-method-title{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:8px}
+.cs-method-body{font-size:.85rem;color:var(--ink2);line-height:1.65;font-weight:300}
+.cs-method-result{display:flex;align-items:center;gap:8px;margin-top:12px;padding:10px 14px;background:var(--white);border-radius:10px;border:1.5px solid var(--border)}
+.cs-method-result-num{font-size:1.1rem;font-weight:700;color:var(--p)}
+.cs-method-result-label{font-size:.75rem;color:var(--ink3);font-weight:300}
+
+/* screen grid */
+.cs-screen-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:28px}
+.cs-screen-grid img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.cs-screen-grid-ph{aspect-ratio:4/3;border-radius:12px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink3);font-size:.65rem;text-align:center;padding:10px}
+.cs-screen-grid-ph span:first-child{font-size:1.5rem}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+@media(max-width:768px){
+  .cs-img-2up,.cs-method-grid{grid-template-columns:1fr}
+  .cs-screen-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .cs-screen-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Machine Learning</span>
+        <span class="cs-tag">Deep Learning</span>
+        <span class="cs-tag">Python</span>
+        <span class="cs-tag">Flask</span>
+        <span class="cs-tag">First Class Honours</span>
+      </div>
+      <h1 class="cs-hero-title rev">Breast Cancer —<br><em>ML Prediction Web App</em></h1>
+      <p class="cs-hero-sub rev">A machine learning and deep learning web application that predicts breast cancer diagnosis from clinical data or histopathological images — achieving 97.14% accuracy with SVM and 95.65% with CNN, deployed via a Flask web interface. Awarded First Class Honours.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">ML Engineer &amp; Developer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Context</div>
+          <div class="cs-meta-val">BSc Software Engineering · 2022</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Result</div>
+          <div class="cs-meta-val">First Class Honours</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Code</div>
+          <div class="cs-meta-val pill">✦ Available on request</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER — your portfolio card image (laptop + tablet mockup)
+          Save as: assets/breast-cancer-ml/cover.png · 1040 × 600px
+        -->
+        <img src="../assets/breast-cancer-ml/cover.png" alt="MediPredict Web App"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🩺</span><span>assets/breast-cancer-ml/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>MediPredict?</em></h2>
+        <div class="cs-body rev">
+          <p>MediPredict is a breast cancer prediction web application that uses machine learning and deep learning to help detect the presence or absence of breast cancer at an early stage. The system accepts two types of input: clinical numerical data about the patient, or a histopathological microscopy image of breast tissue — giving users two independent prediction methods within a single application.</p>
+          <p>Breast cancer remains one of the leading causes of cancer death worldwide, with many cases going undetected until later stages due to diagnostic errors and limited access to specialist expertise. This project explored whether machine learning and deep learning could provide an accurate, accessible, and cost-effective alternative prediction tool — and deployed the best-performing algorithms into a usable web application anyone could interact with.</p>
+          <p>The project was completed as part of my BSc in Software Engineering at Cardiff Metropolitan University (via ICBT), achieving First Class Honours. The work covered the full pipeline: literature review, data acquisition, algorithm selection, training and evaluation, comparative analysis, system design using UML, web application development with Flask, form validation, and black-box testing.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Context</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">BSc Software Engineering · Cardiff Met · 2022</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Result</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">First Class Honours</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Best ML Accuracy</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">97.14% — SVM on WBCD dataset</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Best DL Accuracy</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">95.65% — CNN on BreakHis dataset</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 PROBLEM & SOLUTION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Problem</div>
+    <h2 class="cs-section-title rev">Why this <em>matters.</em></h2>
+    <div class="cs-two-col">
+      <div class="cs-box problem rev">
+        <span class="cs-box-icon">⚠️</span>
+        <div class="cs-box-title">The Problem</div>
+        <div class="cs-box-text">Traditional breast cancer detection (mammography, ultrasound, clinical examination) depends heavily on specialist expertise and is prone to human error — with approximately 52% of diagnostic errors caused by misreading symptoms and 43% by overlooking them. Early-stage detection rates remain low in many countries, directly impacting survival rates.</div>
+      </div>
+      <div class="cs-box rev">
+        <span class="cs-box-icon">✅</span>
+        <div class="cs-box-title">The Solution</div>
+        <div class="cs-box-text">A dual-method web application combining a trained SVM model (clinical data) and CNN model (tissue images) into a single accessible interface. Users input either their clinical measurements or upload a histopathological image — and the system returns a prediction instantly, with a clear message to consult a doctor before acting on results.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 TWO METHODS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Two Prediction Methods</div>
+    <h2 class="cs-section-title rev">Clinical data <em>and</em> image <em>input — one app.</em></h2>
+    <div class="cs-body rev">
+      <p>One of the distinctive features of this project is that it supports two completely independent prediction pathways in a single web application — each using a different dataset, a different class of algorithm, and a different input type.</p>
+    </div>
+    <div class="cs-method-grid rev">
+      <div class="cs-method-card">
+        <div class="cs-method-num">Method I — Clinical Data</div>
+        <div class="cs-method-title">Machine Learning on WBCD Dataset</div>
+        <div class="cs-method-body">Users input 9 numerical clinical measurements (clump thickness, cell size uniformity, cell shape uniformity, etc.) from the Wisconsin Breast Cancer Diagnostic dataset. The trained SVM model predicts whether the tumour is malignant or benign. Dataset: 669 cases — 458 benign, 241 malignant. 70/30 train/test split with 10-fold cross validation.</div>
+        <div class="cs-method-result">
+          <div class="cs-method-result-num">97.14%</div>
+          <div class="cs-method-result-label">SVM accuracy<br>Best of 4 algorithms tested</div>
+        </div>
+      </div>
+      <div class="cs-method-card">
+        <div class="cs-method-num">Method II — Histopathological Image</div>
+        <div class="cs-method-title">Deep Learning on BreakHis Dataset</div>
+        <div class="cs-method-body">Users upload a microscopic biopsy image of breast tissue. The trained CNN model classifies the image as benign or malignant. Dataset: 9,109 images from 82 patients at 4 magnification levels (40×, 100×, 200×, 400×). Images resized to 224×224×3. 85% training / 5% testing / 10% validation split.</div>
+        <div class="cs-method-result">
+          <div class="cs-method-result-num">95.65%</div>
+          <div class="cs-method-result-label">CNN validation accuracy<br>Best of 3 algorithms tested</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 ALGORITHM COMPARISON — METHOD I -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Algorithm Comparison: Machine Learning</div>
+    <h2 class="cs-section-title rev">Testing four algorithms <em>to find the best.</em></h2>
+    <div class="cs-body rev">
+      <p>Four machine learning algorithms were trained and evaluated on the Wisconsin Breast Cancer Diagnostic dataset. All were measured on accuracy, precision, recall, and F1 score for both benign and malignant classes, as well as confusion matrix results.</p>
+    </div>
+    <div style="border-radius:12px;overflow:hidden;border:1.5px solid var(--border);margin-top:20px" class="rev">
+      <table class="cs-algo-table">
+        <tr>
+          <th>Algorithm</th>
+          <th>Accuracy</th>
+          <th>Precision (B/M)</th>
+          <th>Recall (B/M)</th>
+          <th>Result</th>
+        </tr>
+        <tr class="winner">
+          <td>SVM <span class="cs-algo-badge">Winner</span></td>
+          <td>97.14%</td>
+          <td>0.98 / 0.96</td>
+          <td>0.98 / 0.96</td>
+          <td>204/210 correct</td>
+        </tr>
+        <tr>
+          <td>KNN</td>
+          <td>95.71%</td>
+          <td>0.96 / 0.95</td>
+          <td>0.97 / 0.94</td>
+          <td>2nd place</td>
+        </tr>
+        <tr>
+          <td>Naïve Bayes</td>
+          <td>95.23%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>3rd place</td>
+        </tr>
+        <tr>
+          <td>CART</td>
+          <td>90.47%</td>
+          <td>—</td>
+          <td>—</td>
+          <td>Lowest performer</td>
+        </tr>
+      </table>
+    </div>
+    <div style="margin-top:14px;padding:14px 18px;background:var(--cream2);border-radius:12px;border:1.5px solid var(--border);font-size:.875rem;color:var(--ink2);line-height:1.6;font-weight:300" class="rev">
+      <strong style="color:var(--ink)">SVM was selected for deployment.</strong> It correctly classified 204 out of 210 test cases — 130 benign correctly identified as benign, 74 malignant correctly identified as malignant, with only 6 misclassifications (3 false positives, 3 false negatives). This result is consistent with other published research showing SVM accuracy between 96.6% and 97.9% on the same dataset.
+    </div>
+  </div>
+
+  <!-- 05 ALGORITHM COMPARISON — METHOD II -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Algorithm Comparison: Deep Learning</div>
+    <h2 class="cs-section-title rev">Testing three deep learning <em>models on image data.</em></h2>
+    <div class="cs-body rev">
+      <p>Three deep learning architectures were trained and evaluated on the BreakHis histopathological image dataset. Models were compared on validation accuracy and validation loss — the key metrics for assessing how well a model generalises to unseen data.</p>
+    </div>
+    <div style="border-radius:12px;overflow:hidden;border:1.5px solid var(--border);margin-top:20px" class="rev">
+      <table class="cs-algo-table">
+        <tr>
+          <th>Model</th>
+          <th>Validation Accuracy</th>
+          <th>Validation Loss</th>
+          <th>Result</th>
+        </tr>
+        <tr class="winner">
+          <td>CNN <span class="cs-algo-badge">Winner</span></td>
+          <td>95.65%</td>
+          <td>8.68%</td>
+          <td>Best on both metrics</td>
+        </tr>
+        <tr>
+          <td>DenseNet121</td>
+          <td>95.65%</td>
+          <td>16.78%</td>
+          <td>Equal accuracy, higher loss</td>
+        </tr>
+        <tr>
+          <td>ResNet50</td>
+          <td>94.78%</td>
+          <td>19.09%</td>
+          <td>Lowest performer</td>
+        </tr>
+      </table>
+    </div>
+    <div style="margin-top:14px;padding:14px 18px;background:var(--cream2);border-radius:12px;border:1.5px solid var(--border);font-size:.875rem;color:var(--ink2);line-height:1.6;font-weight:300" class="rev">
+      <strong style="color:var(--ink)">CNN was selected for deployment.</strong> While CNN and DenseNet121 achieved equal validation accuracy (95.65%), CNN's validation loss of 8.68% was significantly lower than DenseNet121's 16.78% — indicating CNN generalises better and produces more confident, reliable predictions on unseen images.
+    </div>
+  </div>
+
+  <!-- 06 WEB APPLICATION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Web Application</div>
+    <h2 class="cs-section-title rev">MediPredict — <em>the deployed product.</em></h2>
+    <div class="cs-body rev">
+      <p>The best-performing models (SVM + CNN) were integrated into a Flask web application called MediPredict. The interface was designed to be approachable and clear for non-technical users — including a disclaimer popup before predictions, validated input forms, and a results section that always reminds users to consult a doctor before acting on the output.</p>
+    </div>
+
+    <!--
+      HOMEPAGE SCREENSHOT
+      Save as: assets/breast-cancer-ml/app-home.png
+      Size: 1040 × 600px
+    -->
+    <img src="../assets/breast-cancer-ml/app-home.png" alt="MediPredict Homepage"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('hp-ph').style.display='flex'">
+    <div id="hp-ph" class="cs-full-ph rev" style="display:none">
+      <span>🩺</span><span>MediPredict homepage screenshot</span>
+      <span style="font-size:.7rem;opacity:.7">assets/breast-cancer-ml/app-home.png · 1040 × 600px</span>
+    </div>
+    <div class="cs-img-caption rev">MediPredict homepage — "Let's Stand Together and Fight Breast Cancer"</div>
+
+    <!-- Predict tool screenshots -->
+    <div class="cs-img-2up rev">
+      <div>
+        <img src="../assets/breast-cancer-ml/app-predict-data.png" alt="Method I — Data Prediction"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>📊</span><span>Method I — data prediction result<br>app-predict-data.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Method I — clinical data input and prediction result</div>
+      </div>
+      <div>
+        <img src="../assets/breast-cancer-ml/app-predict-image.png" alt="Method II — Image Prediction"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🖼️</span><span>Method II — image prediction result<br>app-predict-image.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Method II — histopathological image upload and result</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 KEY PAGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — Application Pages</div>
+    <h2 class="cs-section-title rev">A complete <em>user-facing product.</em></h2>
+    <div class="cs-body rev"><p>Beyond the prediction tool, MediPredict includes an About Us page explaining the system and its purpose, a Preventions page giving users evidence-based guidance on reducing breast cancer risk, and thorough input validation on all forms.</p></div>
+
+    <!--
+      PAGES GRID — 2 screenshots
+      Save to: assets/breast-cancer-ml/page-about.png / page-disclaimer.png / page-prevention.png
+      Size: 640 × 480px each
+    -->
+    <div class="cs-screen-grid rev">
+      <div>
+        <img src="../assets/breast-cancer-ml/page-about.png" alt="About Page"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-screen-grid-ph\'><span>ℹ️</span><span>About Us page<br>page-about.png</span></div>'">
+        <div class="cs-img-caption">About MediPredict</div>
+      </div>
+      <div>
+        <img src="../assets/breast-cancer-ml/page-prevention.png" alt="Preventions Page"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-screen-grid-ph\'><span>🌿</span><span>Preventions page<br>page-prevention.png</span></div>'">
+        <div class="cs-img-caption">Preventions &amp; awareness</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Built with <em>Python and Flask.</em></h2>
+    <div class="cs-body rev"><p>The entire stack is Python-based — scikit-learn and TensorFlow/Keras for model training, Flask to serve the models as a web application, and standard HTML/CSS/JS for the front end. The trained models were serialised and loaded at runtime, with Flask handling the routing, form submission, prediction calls, and response rendering.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🐍</div><span class="cs-tech-name">Python</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🧠</div><span class="cs-tech-name">TensorFlow / Keras</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📊</div><span class="cs-tech-name">scikit-learn</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🌐</div><span class="cs-tech-name">Flask</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🐼</div><span class="cs-tech-name">Pandas / NumPy</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📈</div><span class="cs-tech-name">Matplotlib</span></div>
+    </div>
+  </div>
+
+  <!-- 09 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Outcomes</div>
+    <h2 class="cs-section-title rev">What was <em>achieved.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">97.14%</span>
+        <span class="cs-outcome-label">SVM accuracy on clinical data</span>
+        <span class="cs-outcome-note">204/210 test cases correctly classified</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">95.65%</span>
+        <span class="cs-outcome-label">CNN validation accuracy on images</span>
+        <span class="cs-outcome-note">Lowest validation loss of the three models</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">1st</span>
+        <span class="cs-outcome-label">First Class Honours</span>
+        <span class="cs-outcome-note">BSc Software Engineering · Cardiff Metropolitan University</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>Algorithm selection is an empirical process.</strong> The literature suggested SVM and CNN would perform well — but implementing all the alternatives and measuring them directly was the only way to confirm this. The comparison process itself produced the most valuable learning, not just the final result.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>Validation loss matters as much as validation accuracy.</strong> CNN and DenseNet121 achieved identical validation accuracy. It was the validation loss that differentiated them — CNN's significantly lower loss meant its predictions were more confident and its generalization more reliable. Accuracy alone is not enough to select a model.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>ML in healthcare demands responsibility.</strong> Designing the disclaimer popup and the "consult your doctor" message wasn't just good UX — it was ethically necessary. A prediction tool in a medical context needs to be transparent about what it is and what it isn't, especially when its outputs might influence someone's decisions about their own health.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">MomFlow — Wellness App for New Moms</div>
+    </div>
+    <a href="momflow-app-case-study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

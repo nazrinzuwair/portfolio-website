@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Invitation Suite — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* full-width image */
+.cs-full-img{width:100%;border-radius:14px;border:1px solid var(--border);display:block;margin-top:28px;box-shadow:0 4px 24px rgba(124,58,237,.08)}
+.cs-full-ph{width:100%;aspect-ratio:16/8;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;margin-top:28px;text-align:center;padding:32px}
+.cs-full-ph span:first-child{font-size:2rem}
+
+/* 2-col invite showcase */
+.cs-invite-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
+.cs-invite-card{border-radius:16px;overflow:hidden;border:1.5px solid var(--border);background:var(--white);box-shadow:0 6px 28px rgba(0,0,0,.1)}
+.cs-invite-card img{width:100%;display:block;object-fit:contain;background:#fafafa;}
+.cs-invite-card-ph{height:240px;background:var(--cream2);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;text-align:center;padding:20px}
+.cs-invite-card-ph span:first-child{font-size:2.5rem}
+.cs-invite-info{padding:18px 20px}
+.cs-invite-theme{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:6px}
+.cs-invite-name{font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:6px}
+.cs-invite-desc{font-size:.82rem;color:var(--ink2);line-height:1.6;font-weight:300}
+.cs-invite-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.cs-invite-tag{background:var(--cream2);border:1px solid var(--border);border-radius:20px;padding:3px 10px;font-size:.7rem;font-weight:600;color:var(--ink3)}
+
+/* spec table */
+.cs-spec-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:.875rem}
+.cs-spec-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink2);font-weight:300}
+.cs-spec-table td:first-child{font-weight:700;color:var(--ink);width:35%}
+.cs-spec-table tr:last-child td{border-bottom:none}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+@media(max-width:600px){
+  .cs-invite-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Print Design</span>
+        <span class="cs-tag">Invitation Design</span>
+        <span class="cs-tag">Canva</span>
+        <span class="cs-tag">Adobe Illustrator</span>
+        <span class="cs-tag">A5 · 5×7</span>
+      </div>
+      <h1 class="cs-hero-title rev">Event Invitation —<br><em>Suite Design</em></h1>
+      <p class="cs-hero-sub rev">Print-ready invitation designs for personal celebrations — each suite built with cohesive typography, custom illustrations, and coordinated colour palettes tailored to the event theme.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Graphic Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Type</div>
+          <div class="cs-meta-val">Print · Invitation Design</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Tools</div>
+          <div class="cs-meta-val">Canva · Illustrator</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Format</div>
+          <div class="cs-meta-val pill">✦ A5 · 5×7 Print Ready</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER — both invitation cards fanned/overlapping
+          You can use the portfolio card image you already have (uploaded screenshot)
+          Save as: assets/invitations/cover.png
+          Size: 1040 × 600px
+        -->
+        <img src="../assets/invitations/cover.png" alt="Event Invitation Suite"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🎉</span><span>Add cover image<br><span style=\'font-size:.65rem;opacity:.6\'>assets/invitations/cover.png · 1040×600px</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">01 — Overview</div>
+    <h2 class="cs-section-title rev">Designing for <em>moments that matter.</em></h2>
+    <div class="cs-body rev">
+      <p>Personal celebration invitations are one of the most emotionally significant pieces of print design — they set the tone for the entire event and are often kept as keepsakes long after the day itself. Every design decision, from typeface to colour palette to illustration style, needs to match the mood of the occasion and resonate with the person receiving it.</p>
+      <p>This collection presents two invitation suites designed for personal celebrations. Each suite was developed from a distinct theme, with custom typography pairings, coordinated colour palettes, and illustrative elements that bring the event's character to life. Both are print-ready at A5 and 5×7 inch formats, suitable for professional printing or home printing.</p>
+    </div>
+  </div>
+
+  <!-- 02 THE DESIGNS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Designs</div>
+    <h2 class="cs-section-title rev">Two suites, <em>two completely different worlds.</em></h2>
+    <div class="cs-body rev">
+      <p>Each invitation was designed to immediately communicate its event theme through colour, illustration, and typographic mood — so the recipient knows what kind of event they're being invited to before they read a single word.</p>
+    </div>
+
+    <div class="cs-invite-grid rev">
+
+      <!-- DESIGN 1 — Baby Shower -->
+      <div class="cs-invite-card">
+        <!--
+          BABY SHOWER INVITATION
+          Save as: assets/invitations/invite-babyshower.png
+          Crop from your uploaded screenshot: left card (blue teddy bear)
+          Or export directly from Canva
+          Size: 500 × 700px (5:7 portrait)
+        -->
+        <img src="../assets/invitations/invite-babyshower.png" alt="Baby Shower Invitation"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-invite-card-ph" style="display:none"><span>🐻</span><span>Baby Shower Invite</span></div>
+        <div class="cs-invite-info">
+          <div class="cs-invite-theme">Baby Shower</div>
+          <div class="cs-invite-name">Hello Baby — Teddy &amp; Balloons</div>
+          <div class="cs-invite-desc">A soft, dreamlike baby shower invitation built around a blue watercolour palette with a teddy bear and balloon illustration. Script and serif typography creates warmth and intimacy appropriate for a baby welcoming celebration.</div>
+          <div class="cs-invite-tags">
+            <span class="cs-invite-tag">Soft Blue Watercolour</span>
+            <span class="cs-invite-tag">Script Typography</span>
+            <span class="cs-invite-tag">Custom Illustration</span>
+            <span class="cs-invite-tag">Stork Detail</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGN 2 — Birthday / Ladybug -->
+      <div class="cs-invite-card">
+        <!--
+          LADYBUG BIRTHDAY INVITATION
+          Save as: assets/invitations/invite-ladybug.png
+          Crop from your uploaded screenshot: right card (pink ladybug)
+          Or export directly from Canva
+          Size: 500 × 700px (5:7 portrait)
+        -->
+        <img src="../assets/invitations/invite-ladybug.png" alt="Ladybug Birthday Invitation"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-invite-card-ph" style="display:none"><span>🐞</span><span>Ladybug Birthday Invite</span></div>
+        <div class="cs-invite-info">
+          <div class="cs-invite-theme">Birthday Celebration</div>
+          <div class="cs-invite-name">Ladybug Shower — Pink &amp; Red</div>
+          <div class="cs-invite-desc">A playful, vibrant birthday invitation built around a pink and red ladybug theme with scattered floral elements. Bold script for the headline creates immediate impact, while the ladybug motifs throughout give the design a joyful, whimsical character.</div>
+          <div class="cs-invite-tags">
+            <span class="cs-invite-tag">Pink &amp; Red Palette</span>
+            <span class="cs-invite-tag">Bold Script Headline</span>
+            <span class="cs-invite-tag">Ladybug Motifs</span>
+            <span class="cs-invite-tag">Floral Details</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 03 DESIGN APPROACH -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Design Approach</div>
+    <h2 class="cs-section-title rev">What makes each <em>invitation work.</em></h2>
+    <div class="cs-body rev">
+      <p>Good invitation design works on a hierarchy — the event name catches the eye first, the key details (date, time, venue) read second, and the decorative elements frame and reinforce the mood throughout. Every element serves a purpose: nothing is purely decorative if it doesn't also communicate something about the event.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:24px" class="rev">
+      <div style="background:var(--cream2);border-radius:14px;padding:20px 22px;border:1.5px solid var(--border)">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Typography</div>
+        <div style="font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300">Each suite uses a script headline font paired with a clean serif or sans for event details — creating contrast between the emotive headline and the practical information below it.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:14px;padding:20px 22px;border:1.5px solid var(--border)">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Colour</div>
+        <div style="font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300">Palettes were chosen to match the emotional tone of each event — soft watercolour blues for a gentle baby shower; bold pink and red for a joyful, energetic birthday celebration.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:14px;padding:20px 22px;border:1.5px solid var(--border)">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Illustration</div>
+        <div style="font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300">Custom or curated illustrative elements (teddy &amp; balloons, ladybugs &amp; florals) are placed to frame the text without competing with it — they set the scene without cluttering the information.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:14px;padding:20px 22px;border:1.5px solid var(--border)">
+        <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Print Readiness</div>
+        <div style="font-size:.875rem;color:var(--ink2);line-height:1.65;font-weight:300">Both designs are exported at A5 / 5×7 inch format, CMYK-compatible colour profile, with sufficient margins and bleed area for professional print production.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SPECIFICATIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Print Specifications</div>
+    <h2 class="cs-section-title rev">Ready for <em>print production.</em></h2>
+    <div class="cs-body rev"><p>Every invitation suite is designed to be handed directly to a print shop — or printed at home — without any additional technical work required.</p></div>
+    <div style="background:var(--cream2);border-radius:14px;margin-top:20px;overflow:hidden;border:1.5px solid var(--border)" class="rev">
+      <table class="cs-spec-table">
+        <tr><td>Format</td><td>A5 (148 × 210mm) · 5×7 inch</td></tr>
+        <tr><td>Orientation</td><td>Portrait</td></tr>
+        <tr><td>Colour Mode</td><td>CMYK · Print-ready export</td></tr>
+        <tr><td>Resolution</td><td>300 DPI minimum</td></tr>
+        <tr><td>File Format</td><td>PDF (print) · PNG (digital share)</td></tr>
+        <tr><td>Tools Used</td><td>Canva · Adobe Illustrator</td></tr>
+        <tr><td>Bleed</td><td>3mm bleed included</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 05 TOOLS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Tools</div>
+    <h2 class="cs-section-title rev">Designed with the <em>right tools.</em></h2>
+    <div class="cs-body rev"><p>Canva was used for rapid layout iteration and client-friendly previews, while Adobe Illustrator handled custom vector elements and export precision for print-ready files.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Canva</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">✏️</div><span class="cs-tech-name">Adobe Illustrator</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📄</div><span class="cs-tech-name">PDF Export</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🖨️</div><span class="cs-tech-name">Print Ready</span></div>
+    </div>
+  </div>
+
+  <!-- 06 NOTE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — Collection Note</div>
+    <h2 class="cs-section-title rev">More designs <em>coming soon.</em></h2>
+    <div class="cs-body rev">
+      <p>This suite currently showcases two invitation designs — a baby shower and a birthday celebration. The collection is actively growing to include thank-you cards, matching envelopes, birthday party invitations, and other personal celebration stationery. Each new addition will follow the same principle: a cohesive theme, print-ready quality, and a design that feels personal to the occasion it celebrates.</p>
+    </div>
+    <div style="margin-top:20px;background:var(--cream2);border-radius:14px;padding:20px 24px;border:1.5px solid var(--border)" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:12px">Planned additions</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <span style="background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:600;color:var(--ink)">Thank-You Cards</span>
+        <span style="background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:600;color:var(--ink)">Matching Envelopes</span>
+        <span style="background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:600;color:var(--ink)">Birthday Party Sets</span>
+        <span style="background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:600;color:var(--ink)">Wedding Stationery</span>
+        <span style="background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:4px 12px;font-size:.8rem;font-weight:600;color:var(--ink)">Baby Milestone Cards</span>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Nadeera Gems — E-Commerce Store</div>
+    </div>
+    <a href="nadeera_gems_project.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+
+<script src="../script.js"></script>
+</body>
+</html>

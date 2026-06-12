@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Marketing Posts — NR Creativo · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* ── Post grid — 3 col, square-ish ratio ── */
+.cs-post-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:32px;
+}
+.cs-post-card{
+  border-radius:14px;
+  overflow:hidden;
+  border:1.5px solid var(--border);
+  background:var(--white);
+  box-shadow:0 4px 18px rgba(0,0,0,.08);
+  transition:transform .2s;
+}
+.cs-post-card:hover{transform:translateY(-3px)}
+
+/* image — square ratio for social posts */
+.cs-post-card img{
+  width:100%;
+  display:block;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  object-position:center;
+}
+.cs-post-ph{
+  width:100%;
+  height:160px;
+  background:var(--cream2);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:6px;
+  color:var(--ink3);
+  font-size:.72rem;
+  text-align:center;
+  padding:16px;
+}
+.cs-post-ph span:first-child{font-size:1.8rem}
+
+.cs-post-info{padding:14px 16px}
+.cs-post-cat{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:4px}
+.cs-post-name{font-size:.9rem;font-weight:700;color:var(--ink);margin-bottom:4px}
+.cs-post-desc{font-size:.78rem;color:var(--ink2);line-height:1.55;font-weight:300}
+.cs-post-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.cs-post-tag{background:var(--cream2);border:1px solid var(--border);border-radius:20px;padding:2px 9px;font-size:.65rem;font-weight:600;color:var(--ink3)}
+
+/* spec row */
+.cs-spec-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:24px}
+.cs-spec-cell{background:var(--cream2);border-radius:12px;padding:14px 16px;border:1.5px solid var(--border);text-align:center}
+.cs-spec-num{font-size:1.2rem;font-weight:700;color:var(--p);margin-bottom:4px}
+.cs-spec-label{font-size:.72rem;color:var(--ink2);font-weight:300}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+/* approach 2-col */
+.cs-approach-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px}
+.cs-approach-card{background:var(--cream2);border-radius:13px;padding:18px 20px;border:1.5px solid var(--border)}
+.cs-approach-label{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--p);margin-bottom:8px}
+.cs-approach-text{font-size:.85rem;color:var(--ink2);line-height:1.6;font-weight:300}
+
+@media(max-width:768px){
+  .cs-post-grid{grid-template-columns:repeat(2,1fr)}
+  .cs-spec-row{grid-template-columns:repeat(3,1fr)}
+  .cs-approach-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .cs-post-grid{grid-template-columns:repeat(2,1fr)}
+  .cs-spec-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Social Media</span>
+        <span class="cs-tag">Marketing Design</span>
+        <span class="cs-tag">Canva</span>
+        <span class="cs-tag">Adobe Illustrator</span>
+        <span class="cs-tag">Photoshop</span>
+        <span class="cs-tag">NR Creativo</span>
+      </div>
+      <h1 class="cs-hero-title rev">Social Media Posts —<br><em>NR Creativo Solutions</em></h1>
+      <p class="cs-hero-sub rev">A series of promotional social media posts designed for NR Creativo Solutions — covering service announcements, promotional offers, and brand campaigns. Consistent visual identity across every format, built for Instagram, Facebook, and LinkedIn.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Graphic &amp; Social Media Designer</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Client</div>
+          <div class="cs-meta-val">NR Creativo Solutions</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Tools</div>
+          <div class="cs-meta-val">Canva · Illustrator · Photoshop</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Format</div>
+          <div class="cs-meta-val pill">✦ 1080 × 1080px</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER — your two existing posts side by side
+          Save as: assets/social-posts/cover.png · 1040 × 600px
+          Best option: your portfolio card image (two posts fanned)
+        -->
+        <img src="../assets/social-posts/cover.png" alt="NR Creativo Social Media Posts"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>📱</span><span>assets/social-posts/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">01 — Overview</div>
+    <h2 class="cs-section-title rev">Social media that <em>reflects the brand.</em></h2>
+    <div class="cs-body rev">
+      <p>Alongside the NR Creativo Solutions website redesign, I designed a series of promotional social media posts for the company's Instagram, Facebook, and LinkedIn presence. The brief was to create posts that aligned with the new website's visual identity — clean, professional, and technical-feeling — while communicating specific services, promotions, and brand messages clearly to potential clients.</p>
+      <p>Each post was designed as a standalone piece that works in a feed context — where a viewer sees it out of sequence and in under two seconds decides whether to stop scrolling. That constraint drives every design decision: strong headline, clear value proposition, minimal clutter, consistent brand colour and typography.</p>
+      <p>The collection is ongoing — new posts are added regularly as NR Creativo launches new services and promotions.</p>
+    </div>
+
+    <div class="cs-spec-row rev">
+      <div class="cs-spec-cell">
+        <div class="cs-spec-num">1080px</div>
+        <div class="cs-spec-label">Square format<br>Instagram · Facebook · LinkedIn</div>
+      </div>
+      <div class="cs-spec-cell">
+        <div class="cs-spec-num">RGB</div>
+        <div class="cs-spec-label">Optimised for screen<br>72–150 DPI</div>
+      </div>
+      <div class="cs-spec-cell">
+        <div class="cs-spec-num">PNG · JPG</div>
+        <div class="cs-spec-label">Platform-ready export<br>Feed + Stories variants</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 THE POSTS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Work</div>
+    <h2 class="cs-section-title rev">Promotional posts <em>across services and campaigns.</em></h2>
+    <div class="cs-body rev"><p>Each post below was designed for a specific message — whether promoting a service, announcing an offer, or building brand awareness. </p></div>
+
+    <div class="cs-post-grid rev">
+
+      <!-- POST 1 — "Your website looks great but does it convert?" -->
+      <div class="cs-post-card">
+        <!--
+          Save as: assets/social-posts/post-website-convert.png
+          Source: left post in your portfolio card (purple "YOUR WEBSITE LOOKS GREAT" post)
+          Size: 1080 × 1080px
+        -->
+        <img src="../assets/social-posts/post-website-convert.png" alt="Website Conversion Post"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-post-ph" style="display:none"><span>💻</span><span>post-website-convert.png</span></div>
+        <div class="cs-post-info">
+          <div class="cs-post-cat">Web Services</div>
+          <div class="cs-post-name">Your Website Looks Great — But Does It Convert?</div>
+          <div class="cs-post-desc">Lead generation post promoting NR Creativo's web design and digital marketing services. Strong headline designed to create curiosity and prompt action.</div>
+          <div class="cs-post-tags">
+            <span class="cs-post-tag">Illustrator</span>
+            <span class="cs-post-tag">Promotional</span>
+            <span class="cs-post-tag">1080×1080</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 2 — "Over 90% of mobile time is spent on apps" -->
+      <div class="cs-post-card">
+        <!--
+          Save as: assets/social-posts/post-mobile-apps.png
+          Source: right post in your portfolio card (purple "OVER 90% OF MOBILE TIME" post)
+          Size: 1080 × 1080px
+        -->
+        <img src="../assets/social-posts/post-mobile-apps.png" alt="Mobile Apps Post"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-post-ph" style="display:none"><span>📱</span><span>post-mobile-apps.png</span></div>
+        <div class="cs-post-info">
+          <div class="cs-post-cat">App Development</div>
+          <div class="cs-post-name">Over 90% of Mobile Time Is Spent on Apps — Not Browsers</div>
+          <div class="cs-post-desc">Promotional post for NR Creativo's app development services with a discount offer. Uses a strong statistic as the headline hook to build urgency and drive enquiries.</div>
+          <div class="cs-post-tags">
+            <span class="cs-post-tag">Canva</span>
+            <span class="cs-post-tag">Offer</span>
+            <span class="cs-post-tag">1080×1080</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 3 — add yours -->
+      <div class="cs-post-card">
+        <img src="../assets/social-posts/website-awareness.png" alt="website-awareness"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-post-ph" style="display:none"><span>📣</span><span>post-3.png</span></div>
+        <div class="cs-post-info">
+          <div class="cs-post-cat">Website Marketing Campaign</div>
+          <div class="cs-post-name">Did You Know? Website First Impressions Matter</div>
+          <div class="cs-post-desc">Educational social media graphic highlighting the importance of website design and user experience. Designed to capture attention, communicate a key marketing statistic, and encourage businesses to invest in a stronger online presence.</div>
+          <div class="cs-post-tags">
+            <span class="cs-post-tag">Canva</span>
+            <span class="cs-post-tag">1080×1080</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 4 -->
+      <div class="cs-post-card">
+        <img src="../assets/social-posts/domain-name-registration.png" alt="DomainNameRegistration"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-post-ph" style="display:none"><span>📣</span><span>post-4.png</span></div>
+        <div class="cs-post-info">
+          <div class="cs-post-cat">Domain Registration</div>
+          <div class="cs-post-name">Secure Your Brand Identity with a Custom Domain Name</div>
+          <div class="cs-post-desc">Promotional social media graphic created to highlight domain registration services. Designed to educate businesses on establishing a professional online presence while encouraging them to secure their brand identity through a custom domain name.</div>
+          <div class="cs-post-tags">
+            <span class="cs-post-tag">Canva</span>
+            <span class="cs-post-tag">1080×1080</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 5 -->
+      <div class="cs-post-card">
+        <img src="../assets/social-posts/give-your-business-a-boost.png" alt="GiveYourBusinessABoost"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-post-ph" style="display:none"><span>📣</span><span>post-5.png</span></div>
+        <div class="cs-post-info">
+          <div class="cs-post-cat">Business Growth & Marketing</div>
+          <div class="cs-post-name">Give Your Business a Boost</div>
+          <div class="cs-post-desc">Promotional marketing graphic created to encourage business growth through digital solutions and strategic marketing services. The design uses bold typography, strong visual symbolism, and a clear call-to-action to communicate momentum, innovation, and business success.</div>
+          <div class="cs-post-tags">
+            <span class="cs-post-tag">Illustrator</span>
+            <span class="cs-post-tag">1080×1080</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- POST 6 -->
+      <div class="cs-post-card">
+        <img src="../assets/social-posts/social-media-marketing.png" alt="ManageYourSocialMediaMarketing"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="cs-post-ph" style="display:none"><span>📣</span><span>post-6.png</span></div>
+        <div class="cs-post-info">
+          <div class="cs-post-cat">Social Media Marketing</div>
+          <div class="cs-post-name">Manage Your Social Media Marketing Like a Pro</div>
+          <div class="cs-post-desc">Promotional social media graphic designed to showcase social media marketing services. The design focuses on helping businesses understand the value of strategic content creation, audience engagement, and brand growth through effective digital marketing.</div>
+          <div class="cs-post-tags">
+            <span class="cs-post-tag">Photoshop</span>
+            <span class="cs-post-tag">1080×1080</span>
+          </div>
+        </div>
+      </div>
+
+     
+
+    </div>
+
+  </div>
+
+  <!-- 03 DESIGN APPROACH -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — Design Approach</div>
+    <h2 class="cs-section-title rev">Designed to <em>stop the scroll.</em></h2>
+    <div class="cs-body rev">
+      <p>Every post in this collection was designed around one core principle — a viewer in a social media feed makes a stop-or-scroll decision in under two seconds. The design has to earn that pause with a strong visual hierarchy and a clear message before the caption is even read.</p>
+    </div>
+    <div class="cs-approach-grid rev">
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Headline First</div>
+        <div class="cs-approach-text">Every post leads with the strongest possible statement — a bold fact, a direct question, or a compelling offer. The headline is always the largest, highest-contrast element. Supporting text is secondary.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Brand Consistency</div>
+        <div class="cs-approach-text">NR Creativo's colour palette (purple, dark, white), typography system, and logo placement are consistent across all posts — so any post could be placed next to any other and look like a family.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Single Clear CTA</div>
+        <div class="cs-approach-text">Each post has one call to action — whether that's "Book a Free Consultation", "Get 20% Off", or "Contact Us Today". Multiple CTAs split attention; one CTA drives action.</div>
+      </div>
+      <div class="cs-approach-card">
+        <div class="cs-approach-label">Platform Optimised</div>
+        <div class="cs-approach-text">All posts are produced at 1080×1080px — the standard square format that works across Instagram feed, Facebook feed, and LinkedIn feed without cropping or reformatting.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 TOOLS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Tools</div>
+    <h2 class="cs-section-title rev">The right tool <em>for each post.</em></h2>
+    <div class="cs-body rev"><p>Canva for fast iteration and client-shareable templates. Adobe Illustrator for vector-based posts that need precise brand alignment. Photoshop for photo-composite or image-heavy designs.</p></div>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">🎨</div><span class="cs-tech-name">Canva</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">✏️</div><span class="cs-tech-name">Illustrator</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🖼️</div><span class="cs-tech-name">Photoshop</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📱</div><span class="cs-tech-name">1080×1080px</span></div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Business Card Design Collection</div>
+    </div>
+    <a href="business_card_case_study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+<script src="../script.js"></script>
+</body>
+
+</html>

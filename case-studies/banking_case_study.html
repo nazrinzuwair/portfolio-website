@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secure Banking Authentication System — Case Study · Nazrin Zuwair</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.cs-full-img{width:100%;border-radius:14px;border:1px solid var(--border);display:block;margin-top:28px;box-shadow:0 4px 24px rgba(124,58,237,.08)}
+.cs-full-ph{width:100%;aspect-ratio:16/8;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--ink3);font-size:.8rem;margin-top:28px;text-align:center;padding:32px}
+.cs-full-ph span:first-child{font-size:2rem}
+
+.cs-img-2up{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.cs-img-2up img{width:100%;border-radius:14px;border:1px solid var(--border)}
+.cs-img-2up-ph{aspect-ratio:16/9;border-radius:14px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;color:var(--ink3);font-size:.75rem;text-align:center;padding:16px}
+.cs-img-2up-ph span:first-child{font-size:1.8rem}
+
+.cs-screen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}
+.cs-screen-grid img{width:100%;border-radius:12px;border:1px solid var(--border);box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.cs-screen-grid-ph{aspect-ratio:4/3;border-radius:12px;background:var(--cream2);border:1.5px dashed var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink3);font-size:.65rem;text-align:center;padding:10px}
+.cs-screen-grid-ph span:first-child{font-size:1.5rem}
+
+/* security layers */
+.cs-security-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:24px}
+.cs-security-card{background:var(--cream2);border-radius:14px;padding:18px 20px;border:1.5px solid var(--border)}
+.cs-security-icon{font-size:1.4rem;margin-bottom:8px}
+.cs-security-title{font-size:.88rem;font-weight:700;color:var(--ink);margin-bottom:5px}
+.cs-security-text{font-size:.82rem;color:var(--ink2);line-height:1.6;font-weight:300}
+
+/* DAST test cases */
+.cs-dast-list{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+.cs-dast-item{display:flex;gap:14px;padding:14px 18px;background:var(--cream2);border-radius:12px;border:1.5px solid var(--border);align-items:flex-start}
+.cs-dast-badge{flex-shrink:0;background:var(--p);color:white;border-radius:8px;padding:3px 10px;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-top:2px}
+.cs-dast-badge.pass{background:#16a34a}
+.cs-dast-content-title{font-size:.875rem;font-weight:700;color:var(--ink);margin-bottom:3px}
+.cs-dast-content-text{font-size:.8rem;color:var(--ink2);line-height:1.55;font-weight:300}
+
+/* tool comparison table */
+.cs-tool-table{width:100%;border-collapse:collapse;margin-top:20px;font-size:.85rem}
+.cs-tool-table th{padding:10px 14px;background:var(--p);color:white;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;text-align:left}
+.cs-tool-table th:first-child{border-radius:8px 0 0 0}
+.cs-tool-table th:last-child{border-radius:0 8px 0 0}
+.cs-tool-table td{padding:10px 14px;border-bottom:1px solid var(--border);color:var(--ink2);font-weight:300;vertical-align:top}
+.cs-tool-table tr:last-child td{border-bottom:none}
+.cs-tool-table td:first-child{font-weight:700;color:var(--ink)}
+
+.cs-img-caption{font-size:.75rem;color:var(--ink3);text-align:center;margin-top:10px;font-weight:300;font-style:italic}
+
+@media(max-width:768px){
+  .cs-img-2up,.cs-security-grid{grid-template-columns:1fr}
+  .cs-screen-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:480px){
+  .cs-screen-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-logo">
+      <div class="nav-av"><img src="../assets/nazrin_about_me.png" alt="Nazrin Zuwair"></div>
+      <span class="nav-name">Nazrin Zuwair</span>
+    </a>
+    <div class="nav-links">
+      <a href="../about.html" class="nav-a">About</a>
+      <a href="../portfolio.html" class="nav-a">Portfolio</a>
+      <a href="../contact.html" class="nav-a">Contact</a>
+      <div class="nav-icons">
+        <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+        <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+      </div>
+    </div>
+    <button class="hbg" id="hbg" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mnav" id="mnav">
+  <a href="../about.html" class="nav-a" onclick="closeNav()">About</a>
+  <a href="../portfolio.html" class="nav-a" onclick="closeNav()">Portfolio</a>
+  <a href="../contact.html" class="nav-a" onclick="closeNav()">Contact</a>
+  <div class="nav-icons">
+    <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" class="nav-icon">in</a>
+    <a href="mailto:naz4rinaz@gmail.com" class="nav-icon">✉</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="cs-hero">
+  <div class="cs-hero-inner">
+    <div class="cs-hero-left">
+      <div class="cs-breadcrumb rev">
+        <a href="../portfolio.html">← Portfolio</a>
+        <span>/</span>
+        <span>Case Study</span>
+      </div>
+      <div class="cs-hero-tags rev">
+        <span class="cs-tag">Cybersecurity</span>
+        <span class="cs-tag">Node.js</span>
+        <span class="cs-tag">React</span>
+        <span class="cs-tag">MongoDB</span>
+        <span class="cs-tag">JWT · MFA · RBAC</span>
+        <span class="cs-tag">MSc Level 7 · 2026</span>
+      </div>
+      <h1 class="cs-hero-title rev">Secure Banking —<br><em>Authentication System</em></h1>
+      <p class="cs-hero-sub rev">A critical online banking authentication system built with MFA, JWT sessions, RBAC, fraud detection, and account lockout — validated through DAST (Burp Suite), SAST (SonarQube), SCA (Snyk), and formal methods (Alloy). React, Node.js/Express, MongoDB, MVC architecture.</p>
+      <div class="cs-meta-row rev">
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">My Role</div>
+          <div class="cs-meta-val">Software Engineer &amp; Security</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Context</div>
+          <div class="cs-meta-val">MSc Level 7 · Staffordshire University · 2026</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Stack</div>
+          <div class="cs-meta-val">React · Node.js · MongoDB</div>
+        </div>
+        <div class="cs-meta-item">
+          <div class="cs-meta-label">Code</div>
+          <div class="cs-meta-val pill">✦ Available on request</div>
+        </div>
+      </div>
+      <div class="cs-scroll-hint rev">
+        <div class="cs-scroll-line"></div>
+        Scroll to explore
+      </div>
+    </div>
+    <div class="cs-hero-right">
+      <div class="cs-hero-mockup">
+        <!--
+          HERO COVER — SecureBank login screen laptop mockup
+          Save as: assets/secure-banking/cover.png · 1040 × 600px
+          Source: your portfolio card image (laptop mockup with "Sign in to SecureBank")
+        -->
+        <img src="../assets/secure-banking/cover.png" alt="SecureBank Authentication System"
+          onerror="this.outerHTML='<div class=\'cs-hero-mockup-ph\'><span style=\'font-size:2.5rem;opacity:.4\'>🔐</span><span>assets/secure-banking/cover.png<br><span style=\'font-size:.65rem;opacity:.6\'>1040 × 600px PNG</span></span></div>'">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<div class="cs-content">
+
+  <!-- 01 OVERVIEW -->
+  <div class="cs-section">
+    <div class="cs-overview-grid">
+      <div>
+        <div class="cs-section-label rev">01 — Overview</div>
+        <h2 class="cs-section-title rev">What is <em>SecureBank?</em></h2>
+        <div class="cs-body rev">
+          <p>SecureBank is a full-stack online banking authentication system designed and built to address the real cybersecurity challenges facing modern digital banking — unauthorised access, brute-force attacks, credential stuffing, MFA bypass, session replay, and privilege escalation.</p>
+          <p>The system implements a defence-in-depth authentication model: users authenticate via password, complete multi-factor authentication via OTP, and receive a signed JWT session token. Every login attempt is logged and evaluated by a fraud detection service that analyses IP addresses, geolocation, and device metadata. Accounts lock automatically after three failed attempts. Role-based access control (RBAC) enforces strict separation between standard users and administrators.</p>
+          <p>The project goes beyond building the system — it validates it rigorously using four distinct security testing methodologies: dynamic testing with Burp Suite, static code analysis with SonarQube, dependency scanning with Snyk, and formal verification using Alloy — mapping every test against OWASP Top 10 categories and requirements from a full traceability matrix.</p>
+          <p>This was completed as part of my MSc at Staffordshire University in 2026, within the Critical Systems and Applications module at Level 7.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border:1.5px solid var(--border);border-radius:18px;padding:24px;position:sticky;top:90px" class="rev">
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:16px">Quick Facts</div>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Context</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">MSc Level 7 · Staffordshire University · 2026</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Architecture</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">MVC · React · Node.js/Express · MongoDB</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">Security Testing</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">DAST · SAST · SCA · Formal Verification</div></div>
+            <div><div style="font-size:.65rem;color:var(--ink3);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:3px">OWASP Coverage</div><div style="font-size:.875rem;color:var(--ink);font-weight:700">A01 · A03 · A07 mapped &amp; tested</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 SECURITY CHALLENGES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">02 — The Problem Space</div>
+    <h2 class="cs-section-title rev">Why online banking <em>authentication is critical.</em></h2>
+    <div class="cs-body rev">
+      <p>Online banking authentication is one of the highest-value targets for attackers. A compromised account can lead to direct financial loss, identity theft, and regulatory penalties under GDPR and PCI DSS. Common attack vectors include brute-force credential guessing, phishing, session hijacking, MFA bypass, and privilege escalation to admin endpoints.</p>
+      <p>The core challenge is building a system that is simultaneously secure enough to resist real attack scenarios, usable enough that legitimate users can authenticate smoothly, and auditable enough that suspicious activity is logged and traceable for forensic investigation.</p>
+    </div>
+    <div class="cs-two-col" style="margin-top:24px">
+      <div class="cs-box problem rev">
+        <span class="cs-box-icon">⚠️</span>
+        <div class="cs-box-title">Key Attack Vectors Addressed</div>
+        <div class="cs-box-text">Brute-force login attempts · NoSQL injection · MFA bypass via missing or misused tokens · RBAC privilege escalation to admin endpoints · Session replay using stale JWT tokens · Credential stuffing from distributed IPs · Sensitive data exposure in codebase</div>
+      </div>
+      <div class="cs-box rev">
+        <span class="cs-box-icon">🛡️</span>
+        <div class="cs-box-title">Legal &amp; Compliance Context</div>
+        <div class="cs-box-text">GDPR — lawful, transparent handling of user PII · PCI DSS — secure transmission and storage of authentication data · OWASP Top 10 — A01 (Broken Access Control), A03 (Injection), A07 (Auth Failures) · TLS/HTTPS for all communications · bcrypt password hashing · No plaintext secrets in logs or DB</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 SYSTEM ARCHITECTURE -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">03 — System Architecture</div>
+    <h2 class="cs-section-title rev">MVC layered architecture <em>with clear security boundaries.</em></h2>
+    <div class="cs-body rev">
+      <p>The system follows a strict MVC architecture with three layers: a React-based presentation layer, a Node.js/Express controller and service layer, and a MongoDB database layer. All communication passes over HTTPS/TLS. The service layer holds all business logic — authentication, authorisation, fraud detection, and user management — keeping controllers lightweight and logic modular and testable.</p>
+    </div>
+
+    <!--
+      ARCHITECTURE DIAGRAM
+      Save as: assets/secure-banking/architecture.png
+      Source: Figure 1 from your document
+      Size: 1040 × 600px
+    -->
+    <img src="../assets/secure-banking/architecture.png" alt="System Architecture Diagram"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('arch-ph').style.display='flex'">
+    <div id="arch-ph" class="cs-full-ph rev" style="display:none">
+      <span>🏗️</span><span>System architecture diagram</span>
+      <span style="font-size:.7rem;opacity:.7">assets/secure-banking/architecture.png · 1040 × 600px</span>
+    </div>
+    <div class="cs-img-caption rev">Authentication system layered architecture — Presentation · Controller · Model · Database</div>
+
+    <!-- Three roles -->
+    <div style="margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px" class="rev">
+      <div style="background:var(--cream2);border-radius:14px;padding:18px 20px;border:1.5px solid var(--border)">
+        <div style="font-size:1.2rem;margin-bottom:8px">👤</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:4px">Guest</div>
+        <div style="font-size:.78rem;color:var(--ink2);line-height:1.55;font-weight:300">Access to public routes only — Home, Login, Register. No access to protected APIs or dashboards.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:14px;padding:18px 20px;border:1.5px solid var(--border)">
+        <div style="font-size:1.2rem;margin-bottom:8px">🏦</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:4px">User</div>
+        <div style="font-size:.78rem;color:var(--ink2);line-height:1.55;font-weight:300">Banking customer who has authenticated with password and completed MFA. Access to protected customer dashboard.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:14px;padding:18px 20px;border:1.5px solid var(--border)">
+        <div style="font-size:1.2rem;margin-bottom:8px">🔧</div>
+        <div style="font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:4px">Admin</div>
+        <div style="font-size:.78rem;color:var(--ink2);line-height:1.55;font-weight:300">Operational monitoring — can view all user login attempts, fraud events, and unlock locked accounts.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 SECURITY FEATURES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">04 — Security Features</div>
+    <h2 class="cs-section-title rev">Defence in depth — <em>layered security controls.</em></h2>
+    <div class="cs-body rev"><p>Each security control addresses a specific attack vector. Together they form a layered defence where compromising one layer does not mean compromising the system.</p></div>
+    <div class="cs-security-grid rev">
+      <div class="cs-security-card">
+        <div class="cs-security-icon">🔐</div>
+        <div class="cs-security-title">Multi-Factor Authentication (MFA)</div>
+        <div class="cs-security-text">After successful password verification, a one-time token is generated and delivered to the user via SendGrid. The OTP is stored hashed — never in plaintext. The full JWT session token is only issued after successful MFA verification.</div>
+      </div>
+      <div class="cs-security-card">
+        <div class="cs-security-icon">🎟️</div>
+        <div class="cs-security-title">JWT Session Management</div>
+        <div class="cs-security-text">Signed JWT tokens carry the user ID and role. Tokens have short expiry. A temporary <code>tempLoginToken</code> is issued during MFA — it cannot be used to access protected endpoints. Logout invalidates the session token server-side.</div>
+      </div>
+      <div class="cs-security-card">
+        <div class="cs-security-icon">🔒</div>
+        <div class="cs-security-title">Account Lockout</div>
+        <div class="cs-security-text">After 3 failed login attempts, the account is temporarily locked for 5 minutes (HTTP 423 response). The lockout counter is stored in MongoDB and resets after the lockout period expires. Protects against both manual and automated brute-force attacks.</div>
+      </div>
+      <div class="cs-security-card">
+        <div class="cs-security-icon">🕵️</div>
+        <div class="cs-security-title">Fraud Detection</div>
+        <div class="cs-security-text">Every login attempt is logged with IP address, geolocation, device metadata, and user agent. The fraud service evaluates risk (LOW/HIGH) based on rules: multiple logins from different IPs, unusual geolocation changes, and repeated failures. High-risk events are stored in FraudEvent and visible to admins.</div>
+      </div>
+      <div class="cs-security-card">
+        <div class="cs-security-icon">🛂</div>
+        <div class="cs-security-title">Role-Based Access Control (RBAC)</div>
+        <div class="cs-security-text">JWT payload carries the user role. Admin endpoints (<code>/api/admin/*</code>) are protected by middleware that validates role before executing controller logic. A regular user token attempting admin endpoints receives HTTP 403 Forbidden.</div>
+      </div>
+      <div class="cs-security-card">
+        <div class="cs-security-icon">🧱</div>
+        <div class="cs-security-title">Input Validation (Zod)</div>
+        <div class="cs-security-text">All authentication endpoints validate input using Zod schema enforcement. Malformed inputs, unexpected data types, and injection payloads are rejected with a 400 Validation Error before reaching the database layer. Prevents NoSQL injection at the input boundary.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 05 SECURITY TESTING -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">05 — Security Testing</div>
+    <h2 class="cs-section-title rev">Four-method <em>security validation approach.</em></h2>
+    <div class="cs-body rev">
+      <p>The system was validated using a comprehensive four-layer security testing strategy — each method targeting a different class of vulnerability and providing complementary evidence of security. Every finding was mapped to an OWASP Top 10 category and a requirements traceability matrix entry.</p>
+    </div>
+
+    <div style="border-radius:12px;overflow:hidden;border:1.5px solid var(--border);margin-top:20px" class="rev">
+      <table class="cs-tool-table">
+        <tr>
+          <th>Method</th>
+          <th>Tool</th>
+          <th>What it tested</th>
+          <th>Result</th>
+        </tr>
+        <tr>
+          <td>DAST</td>
+          <td>Burp Suite</td>
+          <td>NoSQL injection, brute-force lockout, MFA bypass, RBAC bypass, session replay — live against running app</td>
+          <td>All 5 attack scenarios mitigated. No exploitable vulnerabilities found in core auth logic.</td>
+        </tr>
+        <tr>
+          <td>SAST</td>
+          <td>SonarQube</td>
+          <td>Static code analysis — hardcoded secrets, injection risk, insecure patterns across 4.3k lines</td>
+          <td>7 issues found. 3 true positives mitigated. 2 false positives justified. Quality Gate: Passed.</td>
+        </tr>
+        <tr>
+          <td>SCA</td>
+          <td>Snyk</td>
+          <td>Dependency vulnerability scanning — third-party packages for known CVEs</td>
+          <td>1 medium (CSRF — false positive, JWT auth model not susceptible). 1 low resolved.</td>
+        </tr>
+        <tr>
+          <td>Formal Methods</td>
+          <td>Alloy</td>
+          <td>Formal verification of authentication safety rules and fraud detection logic</td>
+          <td>3 assertions verified: NoSessionWithoutSuccessfulLogin, MFA enforcement, multi-IP fraud flagging.</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- 06 DAST TEST CASES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">06 — DAST Test Cases</div>
+    <h2 class="cs-section-title rev">Five attack scenarios <em>tested with Burp Suite.</em></h2>
+    <div class="cs-body rev"><p>Each DAST test case simulated a real attack scenario using Burp Suite Repeater against the live running application. All five attacks were successfully mitigated by server-side controls.</p></div>
+
+    <div class="cs-dast-list rev">
+      <div class="cs-dast-item">
+        <div class="cs-dast-badge pass">MITIGATED</div>
+        <div>
+          <div class="cs-dast-content-title">NoSQL Injection — OWASP A03</div>
+          <div class="cs-dast-content-text">Injected <code>{"$ne": null}</code> into the email field of POST /api/auth/login. Server returned HTTP 400 "Validation error: Invalid input: expected string, received object" — Zod schema enforcement rejected the payload before it reached MongoDB.</div>
+        </div>
+      </div>
+      <div class="cs-dast-item">
+        <div class="cs-dast-badge pass">MITIGATED</div>
+        <div>
+          <div class="cs-dast-content-title">Brute-Force Login &amp; Account Lockout — OWASP A07</div>
+          <div class="cs-dast-content-text">Submitted incorrect password 3 times in Burp Repeater. First attempts returned HTTP 401 "Invalid credentials". After the 3rd failure, account triggered HTTP 423 "Account temporarily locked. Try again later." — even correct credentials were rejected while locked.</div>
+        </div>
+      </div>
+      <div class="cs-dast-item">
+        <div class="cs-dast-badge pass">MITIGATED</div>
+        <div>
+          <div class="cs-dast-content-title">MFA Bypass — OWASP A07</div>
+          <div class="cs-dast-content-text">Two scenarios: (A) accessing GET /api/user/me with no Authorization header → HTTP 401 "Authentication required". (B) using <code>tempLoginToken</code> from the login step as an access token on a protected endpoint → HTTP 401 "MFA required". The system correctly distinguishes temporary MFA tokens from fully authenticated session tokens.</div>
+        </div>
+      </div>
+      <div class="cs-dast-item">
+        <div class="cs-dast-badge pass">MITIGATED</div>
+        <div>
+          <div class="cs-dast-content-title">RBAC Bypass — OWASP A01</div>
+          <div class="cs-dast-content-text">Used a valid user-role JWT to call GET /api/admin/fraud-events (an admin-only endpoint). Server returned HTTP 403 "Forbidden" — role middleware correctly blocked access without exposing admin data or crashing.</div>
+        </div>
+      </div>
+      <div class="cs-dast-item">
+        <div class="cs-dast-badge pass">MITIGATED</div>
+        <div>
+          <div class="cs-dast-content-title">Session Replay / Token Reuse — OWASP A07</div>
+          <div class="cs-dast-content-text">Captured a valid JWT in Burp, logged out from the application, then replayed the captured token against GET /api/user/me. Server returned HTTP 401 "Session expired" — logout correctly invalidated the token server-side.</div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+      DAST SCREENSHOTS — 2-up
+      Save as: assets/secure-banking/dast-lockout.png / dast-rbac.png
+      Size: 1040 × 546px each
+    -->
+    <div class="cs-img-2up rev">
+      <div>
+        <img src="../assets/secure-banking/dast-lockout.png" alt="Brute-Force Lockout Test"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🔒</span><span>Brute-force lockout test<br>dast-lockout.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Burp Repeater — 401 → 423 lockout transition after 3 failed attempts</div>
+      </div>
+      <div>
+        <img src="../assets/secure-banking/dast-rbac.png" alt="RBAC Bypass Attempt"
+          onerror="this.parentElement.innerHTML='<div class=\'cs-img-2up-ph\'><span>🚫</span><span>RBAC bypass attempt<br>dast-rbac.png · 1040×546px</span></div>'">
+        <div class="cs-img-caption">Burp Repeater — user token rejected on admin endpoint with 403</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 07 SAST & SCA -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">07 — SAST &amp; SCA Results</div>
+    <h2 class="cs-section-title rev">SonarQube &amp; Snyk — <em>code and dependency analysis.</em></h2>
+    <div class="cs-body rev"><p>Static analysis with SonarQube identified 7 security issues across 4.3k lines of code. Each was analysed, classified as true positive or false positive, and either remediated or formally justified. After remediation, the main branch Quality Gate status reads Passed with 0 open security issues.</p></div>
+
+    <!--
+      SONARQUBE SCREENSHOT
+      Save as: assets/secure-banking/sonarqube-passed.png
+      Source: Figure 38/39 from your document — Quality Gate: Passed
+      Size: 1040 × 546px
+    -->
+    <img src="../assets/secure-banking/sonarqube-passed.png" alt="SonarQube Quality Gate Passed"
+      class="cs-full-img rev"
+      onerror="this.style.display='none';document.getElementById('sonar-ph').style.display='flex'">
+    <div id="sonar-ph" class="cs-full-ph rev" style="display:none">
+      <span>✅</span><span>SonarQube Quality Gate — Passed</span>
+      <span style="font-size:.7rem;opacity:.7">assets/secure-banking/sonarqube-passed.png · 1040 × 546px</span>
+    </div>
+    <div class="cs-img-caption rev">SonarQube post-remediation — Quality Gate Passed, 0 open security issues</div>
+
+    <div style="margin-top:24px;background:var(--cream2);border-radius:14px;padding:20px 24px;border:1.5px solid var(--border)" class="rev">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p);margin-bottom:14px">Key SAST findings &amp; outcomes</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;gap:10px"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓ Mitigated</span><span style="font-size:.875rem;color:var(--ink2);font-weight:300">Hardcoded MongoDB credentials in <code>.env</code> — rotated, removed from version control, excluded via .gitignore</span></div>
+        <div style="display:flex;gap:10px"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓ Mitigated</span><span style="font-size:.875rem;color:var(--ink2);font-weight:300">Hardcoded SendGrid API key — revoked, replaced, secured in environment variables</span></div>
+        <div style="display:flex;gap:10px"><span style="color:#16a34a;font-weight:700;flex-shrink:0">✓ Mitigated</span><span style="font-size:.875rem;color:var(--ink2);font-weight:300">NoSQL injection risk in adminController.js — explicit input validation added</span></div>
+        <div style="display:flex;gap:10px"><span style="color:var(--ink3);font-weight:700;flex-shrink:0">⊘ False positive</span><span style="font-size:.875rem;color:var(--ink2);font-weight:300">NoSQL injection flagged in mfaRoutes.js and authRoutes.js — these are routing files only; all DB access is in service layers with Zod-validated inputs</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 FORMAL VERIFICATION -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">08 — Formal Verification</div>
+    <h2 class="cs-section-title rev">Alloy model — <em>proving security properties formally.</em></h2>
+    <div class="cs-body rev">
+      <p>Three security assertions were verified using the Alloy formal modelling tool — proving that the system's authentication and fraud detection rules hold under all possible system states within the model's scope. Alloy verification provides mathematical confidence that the design-level security properties are correct, independent of the implementation.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:20px" class="rev">
+      <div style="background:var(--cream2);border-radius:12px;padding:16px 20px;border:1.5px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-size:.85rem;font-weight:700;color:var(--ink)">NoSessionWithoutSuccessfulLogin</div>
+          <span style="background:#16a34a;color:white;border-radius:20px;padding:2px 10px;font-size:.65rem;font-weight:700">PASS</span>
+        </div>
+        <div style="font-size:.82rem;color:var(--ink2);line-height:1.6;font-weight:300">A session cannot exist unless the user has successfully completed both password and MFA verification. Initial run produced a counterexample — the model was missing a constraint. Adding a <code>SessionsRequireSuccessfulLogin</code> fact resolved it. Re-run: no counterexample found.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:12px;padding:16px 20px;border:1.5px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-size:.85rem;font-weight:700;color:var(--ink)">MultiIPFailuresImpliesFlag</div>
+          <span style="background:#16a34a;color:white;border-radius:20px;padding:2px 10px;font-size:.65rem;font-weight:700">PASS</span>
+        </div>
+        <div style="font-size:.82rem;color:var(--ink2);line-height:1.6;font-weight:300">If a user performs multiple failed login attempts from different IP addresses in adjacent time steps, a FraudFlag must exist. Models detection of distributed brute-force and credential-stuffing attacks. Counterexample found on first run → fraud detection fact added → PASS.</div>
+      </div>
+      <div style="background:var(--cream2);border-radius:12px;padding:16px 20px;border:1.5px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div style="font-size:.85rem;font-weight:700;color:var(--ink)">NoSessionWithoutMFA</div>
+          <span style="background:#16a34a;color:white;border-radius:20px;padding:2px 10px;font-size:.65rem;font-weight:700">PASS</span>
+        </div>
+        <div style="font-size:.82rem;color:var(--ink2);line-height:1.6;font-weight:300">A session cannot exist unless MFA has been successfully completed — even if password verification succeeded. Directly validates that MFA bypass is impossible in the formal model. No counterexample found on first run.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 TECH STACK -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">09 — Tech Stack</div>
+    <h2 class="cs-section-title rev">Built and <em>tested with industry tools.</em></h2>
+    <div class="cs-tech-grid rev">
+      <div class="cs-tech"><div style="font-size:1.3rem">⚛️</div><span class="cs-tech-name">React</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🟢</div><span class="cs-tech-name">Node.js / Express</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🍃</div><span class="cs-tech-name">MongoDB</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🎟️</div><span class="cs-tech-name">JWT</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔐</div><span class="cs-tech-name">bcrypt</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">✅</div><span class="cs-tech-name">Zod Validation</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🔍</div><span class="cs-tech-name">Burp Suite</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📊</div><span class="cs-tech-name">SonarQube</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🛡️</div><span class="cs-tech-name">Snyk</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">⚙️</div><span class="cs-tech-name">Alloy</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">📧</div><span class="cs-tech-name">SendGrid</span></div>
+      <div class="cs-tech"><div style="font-size:1.3rem">🌍</div><span class="cs-tech-name">IPinfo (Geo)</span></div>
+    </div>
+  </div>
+
+  <!-- 10 OUTCOMES -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">10 — Outcomes</div>
+    <h2 class="cs-section-title rev">What was <em>built and validated.</em></h2>
+    <div class="cs-outcomes">
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">5/5</span>
+        <span class="cs-outcome-label">DAST attack scenarios mitigated</span>
+        <span class="cs-outcome-note">NoSQL injection · Brute-force · MFA bypass · RBAC · Session replay</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">Passed</span>
+        <span class="cs-outcome-label">SonarQube Quality Gate</span>
+        <span class="cs-outcome-note">0 open security issues post-remediation</span>
+      </div>
+      <div class="cs-outcome rev">
+        <span class="cs-outcome-num">3/3</span>
+        <span class="cs-outcome-label">Alloy assertions verified</span>
+        <span class="cs-outcome-note">Auth safety · MFA enforcement · Fraud detection</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 REFLECTIONS -->
+  <div class="cs-section">
+    <div class="cs-section-label rev">11 — Reflections</div>
+    <h2 class="cs-section-title rev">What I <em>learned.</em></h2>
+    <div class="cs-learnings">
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">01</div>
+        <div class="cs-learning-text"><strong>Security testing requires a layered approach.</strong> No single testing method finds everything. DAST catches runtime behaviour, SAST catches code patterns, SCA catches dependency risks, and formal verification catches design-level flaws. Each layer found things the others would have missed.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">02</div>
+        <div class="cs-learning-text"><strong>False positives require evidence, not dismissal.</strong> Two SAST findings initially flagged as NoSQL injection in route files were classified as false positives — but only after a manual review documenting exactly why they weren't exploitable. In a security context, "it's fine" isn't enough; the justification must be traceable.</div>
+      </div>
+      <div class="cs-learning rev">
+        <div class="cs-learning-num">03</div>
+        <div class="cs-learning-text"><strong>Formal verification reveals incomplete thinking.</strong> Both the authentication safety assertion and the fraud detection assertion found counterexamples on first run — not because the implementation was wrong, but because the formal model hadn't yet encoded all the constraints. Alloy forces precision that informal testing doesn't.</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- end cs-content -->
+
+<!-- NEXT PROJECT -->
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <div>
+      <div class="cs-next-label">Next Project →</div>
+      <div class="cs-next-title">Breast Cancer Prediction — ML Web App</div>
+    </div>
+    <a href="breast_cancer_prediction_case_study.html" class="cs-next-link">View Case Study →</a>
+  </div>
+</div>
+
+<!-- BACK BAR -->
+<div class="cs-back-bar">
+  <div class="cs-back-inner">
+    <a href="../portfolio.html" class="cs-back-link">← Back to Portfolio</a>
+    <div class="cs-share">
+      Share:
+      <a href="https://www.linkedin.com/in/fathima-nazrin-m-052a71288/" target="_blank" title="LinkedIn">in</a>
+      <a href="mailto:?subject=Check out this case study" title="Email">✉</a>
+    </div>
+  </div>
+</div>
+
+<footer style="background:#1a0f2e;text-align:center;padding:28px 24px;font-size:.8rem;color:#ffffff;font-family:inherit;border-top:1px solid var(--border,#e8e2f5);margin-top:auto;">
+  © <span id="fyear"></span> Nazrin Zuwair. All rights reserved.
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
